@@ -16,6 +16,7 @@ import './App.css'
 import { useState } from 'react';
 import Checkout from "./components/Checkout/Checkout";
 import OrderConfirmation from "./components/OrderConfirmation/OrderConfirmation";
+axios.defaults.baseURL = "pf10a-production.up.railway.app"
 
 
 
