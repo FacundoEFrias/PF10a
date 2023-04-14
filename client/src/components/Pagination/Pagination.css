@@ -17,12 +17,14 @@
       background-color:transparent;
       text-decoration: none;
       margin: 10px;
-      border-radius: 50px;
-      border: 1px solid #5875eb;
+    
+      border: none;
+      border-radius: 5px;
+      border: 1px solid #287094;
       width: 30px;
       height: 30px;
       margin-top: 10px;
-      color: rgb(47, 47, 184);
+      color: #287094;
       text-transform: uppercase;
       font-weight: bold;
       transition: .5s;
@@ -33,11 +35,12 @@
     
     .button3:hover {
       cursor:pointer;
-      background-color: #5875eb ;
+      color:white;
+      background-color: #287094 ;
       /* color: rgb(221, 4, 221)*/
     } 
     
     .button3.active {
-      background-color: #5875eb;
+      background-color: #287094;
      
     }

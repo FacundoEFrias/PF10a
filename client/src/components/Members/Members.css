@@ -1,18 +1,22 @@
 .member {
-    font-family: tahoma;
-    height: 100vh;
-    background-image: url(https://picsum.photos/g/3000/2000);
-    background-size: contain;
-    width: 100% !important;
+    background:linear-gradient( rgb(246, 246, 246, .8), rgb(246, 246, 246, .8)), url("https://res.cloudinary.com/dberwyxyq/image/upload/v1680266139/SnowPandaCO/FrontEnd/fondo-contacto_cz3hsp.jpg"); 
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
     background-position: center;
-    /* display: flex; */
-    align-items: center;
+    padding: 30px 60px 80px;
+    text-align: left;
+    justify-content: space-between;
   }
-  
+  .member-contain{
+    display: flex;
+    justify-content: center;
+  }
   .our-team {
     padding: 30px 0 40px;
     margin-bottom: 30px;
-    background-color: #f7f5ec;
+    background-color:rgba(127, 148, 159, .7);
     text-align: center;
     overflow: hidden;
     position: relative;
@@ -32,7 +36,7 @@
     width: 100%;
     height: 0;
     border-radius: 50%;
-    background-color: #1369ce;
+    background-color:#287094;
     position: absolute;
     bottom: 135%;
     right: 0;
@@ -51,7 +55,7 @@
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background-color: #1369ce;
+    background-color: #287094;
     position: absolute;
     top: 0;
     left: 0;
@@ -82,7 +86,7 @@
     width: 100%;
     padding: 0;
     margin: 0;
-    background-color: #1369ce;
+    background-color: #287094;
     position: absolute;
     bottom: -100px;
     left: 0;
@@ -107,7 +111,10 @@
   }
   
   .our-team .social li a:hover {
-    color: #1369ce;
+    color: #287094;
     background-color: #f7f5ec;
   }
   
+  .about-us{
+    color: black;
+  }

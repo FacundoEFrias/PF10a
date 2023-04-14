@@ -7,9 +7,9 @@
 .buttonorder{
 margin-bottom: 25px;
 border-radius: 8px;
-border-radiues: 8px;
 height:40 px;
 grid-column:3;
+padding: 0.3em;
 }
 
 .buttonorder:hover {

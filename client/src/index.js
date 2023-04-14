@@ -10,8 +10,8 @@ import { Auth0Provider } from "@auth0/auth0-react";
 import { Navigate } from "react-router-dom";
 
 
-const domain = process.env.REACT_APP_AUTH0_DOMAIN
-const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID
+const domain = "dev-rhanbz5vhvfradtc.us.auth0.com"
+const clientId = "gIqgPaWv0HvyNOk8QsD4iTgClvhDLDaI"
 
 /*const onRedirectCallback = (appState) => {
   // Redirigir al usuario a la URL deseada
@@ -26,7 +26,8 @@ root.render(
   domain={domain}
   clientId={clientId}
   authorizationParams={{
-      redirect_uri: window.location.origin
+      // redirect_uri: "https://pf-10a-bhm9.vercel.app/"
+      redirect_uri: "http://localhost:3000/" //Usar en localHost
     }}
     //onRedirectCallback={onRedirectCallback}
   >
@@ -36,5 +37,6 @@ root.render(
         </Auth0Provider>
   </Provider>
 )
+
 
 reportWebVitals();

@@ -1,5 +1,6 @@
 const { Users } = require('../db');
-const { Op } = require("sequelize");
+const { Op } = require("sequelize")
+const nodemailer = require("nodemailer");;
 
 
 const cloudinary = require('cloudinary').v2;
@@ -35,7 +36,37 @@ async function postNewUser(req, res) {
             return res.status(200).send({ message: "User already exists" });
         } else {
             let newUser = await Users.create({ first_name: given_name, last_name: family_name ,email: email, image: picture});
-            return res.status(201).send({ message: "User was created" });
+
+            // configurar transporter para enviar correo electrónico
+            let transporter = nodemailer.createTransport({
+                host: "smtp.gmail.com",
+                port: 465,
+                secure: true,
+                auth: {
+                    user: "snowpandaco@gmail.com", //  correo electrónico
+                    pass: "badticzdnopplwxx" //  contraseña se terceros
+                }
+            });
+
+            //modificar que quiero enviar
+            let mailOptions = {
+                from: "snowpandaco@gmail.com",
+                to: email,
+                subject: "¡Bienvenido!",
+                text: "Hola " + given_name + ",\n\n¡Gracias por registrarte en nuestro sitio web!\n\nSaludos,\nEl equipo de nuestro sitio web"
+            };
+
+            // enviar correo electrónico
+            transporter.sendMail(mailOptions, function(error, info){
+                if (error) {
+                    console.log(error);
+                    res.status(500).json({ error: error });
+                } else {
+                    console.log("Correo electrónico enviado: " + info.response);
+                    res.status(201).send({ message: "User was created and email was sent" });
+                }
+            });
+
         }
     } catch (err) {
         res.status(500).json({ err: err });
@@ -48,10 +79,10 @@ async function postNewUser(req, res) {
 //!-------------- disable    ------ enable  
 async function DisableUser(req, res) {
     try {
-        let { email } = req.body;
+        let { idUser } = req.params;
         const user = await Users.findOne({
             where: {
-                email: email
+              idUser: idUser
             }
         });
         if (user.status === "active") {
@@ -120,8 +151,49 @@ cloudinary.config({
     };
  }
  
+// //!! MODIFY STATUS
+// async function disableEstatus(req, res) {
+//     try {
+//       let { idUser } = req.params;
+  
+//       const statusUsers = await Users.findOne({
+//         where: {
+//             idUser: idUser,
+//         },
+//       });
+  
+//       if (statusUsers.status === true) {
+//         statusUsers.update({ status: false });
+//       } else if (statusUsers.status === false) {
+//         statusUsers.update({ status: true });
+//       }
+//       res.status(201).json(statusUsers);
+//     } catch (err) {
+//       res.status(401).json({ error: err });
+//     }
+//   }
 
-
+  //!! MODIFY Privilege
+async function privilegeEstatus(req, res) {
+    try {
+      let { idUser } = req.params;
+  
+      const privilegeUser = await Users.findOne({
+        where: {
+            idUser: idUser,
+        },
+      });
+  
+      if (privilegeUser.privilige === true) {
+        privilegeUser.update({ privilige: false });
+      } else if (privilegeUser.privilige === false) {
+        privilegeUser.update({ privilige: true });
+      }
+      res.status(201).json(privilegeUser);
+    } catch (err) {
+      res.status(401).json({ error: err });
+    }
+  }
 
 
 module.exports = {
@@ -129,5 +201,8 @@ module.exports = {
     postNewUser,
     DisableUser,
     ModifyUser,
-    searchUsuario
+    searchUsuario,
+    //disableEstatus,
+    privilegeEstatus,
+
 };

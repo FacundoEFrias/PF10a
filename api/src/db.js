@@ -55,7 +55,7 @@ Products.belongsToMany(Users, {through: "UserProducts"})
 
 // Relación de uno a muchos entre Users y Bills
 Users.hasMany(Bills)
-Bills.belongsTo(Users)
+Bills.belongsTo(Users)//{as: "Comprador", foreignKey: "idUser"}
 
 // Relación de uno a muchos entre Users y Reviews
 Users.hasMany(Reviews)
