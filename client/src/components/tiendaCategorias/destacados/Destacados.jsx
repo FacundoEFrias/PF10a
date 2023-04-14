@@ -1,7 +1,9 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { setCurrentPage } from "../../../Redux/actions";
 import "./Destacados.css";
 
 const responsive = {
@@ -15,7 +17,7 @@ const responsive = {
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
-    items: 2,
+    items: 1,
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
@@ -26,6 +28,7 @@ const responsive = {
 const Destacados = ({ datos }) => {
   let newData = datos && datos.filter((e) => e.featuredProduct === true);
 
+  const dispatch = useDispatch();
   
   //Cambia la primera letra en Mayuscula
   try {
@@ -43,8 +46,8 @@ const Destacados = ({ datos }) => {
     });
   };
   return (
-    <div className="bg-secondary px-5 py-4 rounded my-4 destacado">
-      <h2 className="text-center destacados">PRODUCTOS DESTACADOS</h2>
+    <div className="px-5 py-4 rounded my-4 destacado">
+      <h2 className="text-center destacados">FEATURED PRODUCTS</h2>
       <Carousel
         responsive={responsive}
         infinite={true}
@@ -59,7 +62,10 @@ const Destacados = ({ datos }) => {
               key={e.productsID}
               to={`/Products/${e.category}/${e.productsID}/Detail`}
               className="text-decoration-none"
-              onClick={() => scroll()}
+              onClick={() => {
+                scroll();
+                dispatch(setCurrentPage(1));
+              }}
             >
               <div className="card mx-3 text-center text-black">
                 <img src={e.img} className="card-img-top" alt="..." />

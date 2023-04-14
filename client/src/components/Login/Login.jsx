@@ -2,9 +2,8 @@ import { React, useEffect, useState } from 'react'
 import { useAuth0 } from "@auth0/auth0-react";
 import { useDispatch } from 'react-redux'
 import { createNewUser } from '../../Redux/actions/index.js'
+require('./Login.css');
 
-
-import './Login.css'
 
 
 const Login = () => {
@@ -27,7 +26,7 @@ const Login = () => {
 	/*const navigate = useNavigate()
 	const handleLogin = () => {
 		loginWithRedirect({
-			redirectUri: "http://localhost:3000/User" // especificamos la ruta a la que queremos redirigir al usuario
+			redirectUri: "https://pf-10a-bhm9.vercel.app/User" // especificamos la ruta a la que queremos redirigir al usuario
 		});
 	};*/
 

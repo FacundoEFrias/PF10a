@@ -5,7 +5,7 @@ const {
   paymentNotification,
   desactivaBill, 
   searchBills
-} = require("../controllers/billsControllers.js");
+} = require("../controllers/billsControllers");
 
 const router = Router();
 

@@ -1,30 +1,31 @@
-const { Bills} = require("../db");
+const { Bills, Users } = require("../db");
 
 const { Op } = require("sequelize");
 require("dotenv").config();
+const mercadopago = require("mercadopago");
 const {
   ACCESS_TOKEN,
-  FRONT_URL_SUCCESS,
-  FRONT_URL_PENDING,
-  FRONT_URL_FAILED,
-  BACK_URL_SUCCESS,
-  BACK_URL_FAILED,
-  BACK_URL_PENDING,
-  PORT,
 } = process.env;
 
-const mercadopago = require("mercadopago");
+//  Agrega credenciales
+mercadopago.configure({
+  access_token: ACCESS_TOKEN,
+});
+
+
 //!POST purchase
 const postNewBills = async (req, res) => {
-  let { item, quantity, date, price ,IdUser} = req.body;
+  let { item, quantity, date, price , idUser} = req.body;
+  console.log(req.body)
  
     try {
+     //const user = await Users.findByPk(idUser); 
       let bill = {
         item,
         quantity,
         date,
         price,
-        IdUser
+        userIdUser: idUser
       }
       let newbill = await Bills.create(bill);
       //res.status(200).json(createdBill);
@@ -33,20 +34,21 @@ const postNewBills = async (req, res) => {
           {
             id: newbill.id,
             title: newbill.item,
-            quantity: newbill.quantity,
+            quantity: 1,
             unit_price: newbill.price,
-            description: "Hotel Iberia",
+            description: "SnowPanda",
             currency_id: "ARS",
           },
         ],
         back_urls: {
-          success: "",
-          failed: "",
+          success: "http://localhost:3000/",
+          failure: "https://pf-10a-bhm9.vercel.app/",
+          pending: "https://pf-10a-bhm9.vercel.app/",
         },
         auto_return: "approved",
         binary_mode: true,
         notification_url:
-          "https://iberahotelsapi-production.up.railway.app/bills/payment/notification",
+         "https://pf10a-production.up.railway.app/bills/payment/notification",
         //"https://a3a3-37-178-222-102.eu.ngrok.io/bills/payment/notification",
       };
       mercadopago.preferences
@@ -56,9 +58,12 @@ const postNewBills = async (req, res) => {
         })
         .catch(function (error) {
           res.status(500).json({ error: error });
+          console.log(error)
         });
     } catch (error) {
-      res.status(404).json("Your Purchase was not created");
+      console.log(error)
+     // res.status(404).json("Your Purchase was not created");
+      
     }
   }
 
@@ -105,7 +110,7 @@ mercadopago.configure({
 //!GET purchase
 const getAllBills = async (req, res) => {
   try {
-    const allBills = await Bills.findAll({})
+    const allBills = await Bills.findAll({include: Users})
     res.status(200).send(allBills);
   } catch (e) {
     res.status(404).json(e);
@@ -180,6 +185,7 @@ const searchBills = async (req, res) => {
 };
 
 //!!!
+
 module.exports = {
   postNewBills,
   getAllBills,

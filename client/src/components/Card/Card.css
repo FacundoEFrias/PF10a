@@ -1,213 +1,142 @@
 .cardComponent {
-    height: 75vh;
-    padding: 0;
-    margin: 5% 0;
-    display: flex;
-    align-items: center;
-}
-
-.containerId {
     position: relative;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 78vw;
-    height: 600px;
-    background: #fff;
-
-    box-shadow: 10px 10px 1rem #0004;
-}
-
-.imgId {
-    max-width: 100%;
-    object-fit: contain;
-}
-
-.imgBx {
-    display: flex;
-    width: 50%;
-}
-
-.containerId .imgBx:before {
-
-    position: absolute;
-    top: 38.8vw;
-    left: 5vw;
-    color: #000;
-    opacity: 0.2;
-    font-size: 65px;
-    font-weight: bold;
-}
-
-.containerId .imgBx2:before {
-    /*    content: 'Snow Panda';*/
-    content: attr(data-brand);
-    position: absolute;
-    top: 38.8vw;
-    left: 5vw;
-    color: #000;
-    opacity: 0.2;
-    font-size: 65px;
-    font-weight: bold;
-}
-
-
-
-
-
-.details {
-    display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    border-radius: 20px;
+  }
+  
+  .cardComponent:hover {
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+  }
+  
+  .containerId {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .imgBx {
     width: 50%;
-    height: 100%;
     position: relative;
-    /*    left: 5%;*/
-    box-sizing: border-box;
-    padding: 40px;
-}
-
-.containerId .details .pName {
-    margin: 0;
-    padding: 0;
-    font-size: 2.4em;
-    line-height: 1em;
-    color: #444;
-}
-
-.containerId .details .pName .spanId {
-    font-size: 0.4em;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .imgBx:hover img {
+    transform: scale(1.1);
+  }
+  
+  .imgId {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .details {
+    width: 50%;
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  .details h2 {
+    margin-top: 0;
+    font-size: 32px;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #999;
-}
-
-.containerId .details .pIds {
-    max-width: 85%;
-    margin-left: 15%;
-    color: #333;
-    font-size: 15px;
-    margin-bottom: 36px;
-}
-
-.containerId .details .h3Name {
-    margin: 0;
-    padding: 0;
-    font-size: 2.5em;
-    color: #a2a2a2;
-    float: left;
-}
-
-.containerId .details button {
-    background: #000;
-    color: #fff;
-    border: none;
-    outline: none;
-    padding: 15px 20px;
-    margin-top: 5px;
+  }
+  
+  .details .contentId {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 20px;
+  }
+  
+  .details .pIds {
+    margin-bottom: 10px;
     font-size: 16px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-weight: 600;
-    border-radius: 40px;
-    float: right;
-    box-shadow: 0 0 0 0 #000;
-    transition: box-shadow 0.3s ease-out;
-}
+  }
+  
+  .cardprice {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  .h3Name {
+    font-size: 30px;
+    font-weight: 700;
+    margin-right: 20px;
+  } 
 
-.containerId .details button:hover {
-    box-shadow: 0 0 0 6px #488cfb;
-}
-
-.buttonback {
-    background: #488cfb;
-    color: #fff;
-    border: none;
-    outline: none;
-    padding: 5px 10px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    margin-right: 15px;
-    font-size: 14px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-weight: 600;
-    border-radius: 40px;
-    float: right;
+  .buttonback {
     position: absolute;
     bottom: 0;
     right: 0;
-    box-shadow: 0 0 0 0 #488cfb;
-    transition: box-shadow 0.3s ease-out;
-}
-
-.buttonback:hover {
-    box-shadow: 0 0 0 6px #000;
-}
-
-.product-colors .spanId {
-    width: 26px;
-    height: 26px;
-    top: 7px;
-    margin-right: 12px;
-    left: 10px;
-    border-radius: 50%;
-    position: relative;
+    margin: 20px;
+    margin-top: 30px;
+    padding: 10px 20px;
+    background-color: #3d3d3d;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .buttonback:hover {
     cursor: pointer;
-    display: inline-block;
-}
-
-
-.product-colors .active:after {
-    content: "";
-    width: 36px;
-    height: 36px;
-    border: 2px solid #000;
-    position: absolute;
-    border-radius: 50%;
-    box-sizing: border-box;
-    left: -5px;
-    top: -5px;
-}
-
-/* responsive */
-@media (max-width: 1080px) {
-    .cardComponent {
-        height: 100vh;
-        padding: 0;
-        margin: 0;
-
-        display: flex;
-        align-items: center;
-    }
-
-    .containerId {
-        height: auto;
-    }
-
-    .containerId .imgBx {
-        padding: 40px;
-        box-sizing: border-box;
-        width: 100% !important;
-        height: auto;
-        text-align: center;
-        overflow: hidden;
-    }
-
-    .containerId .imgBx .imgId {
-        left: initial;
-        max-width: 100%;
-        transform: rotate(0deg);
-    }
-
-    .details {
-        width: 100% !important;
-        height: auto;
-        padding: 20px;
-    }
-
-    .containerId .details .pIds {
-        margin-left: 0;
-        max-width: 100%;
-    }
-}
+    background-color: #fff;
+    color: #3d3d3d;
+    border: 2px solid #3d3d3d;
+  } 
+  .size-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+  .size-container button {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    background-color: #008CBA;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .size-container button:hover,
+  .size-container button:focus {
+    cursor: pointer;
+    background-color: #005b8e;
+  }
+  
+  .size-container button.selected {
+    background-color: #005b8e;
+    cursor: default;
+  }

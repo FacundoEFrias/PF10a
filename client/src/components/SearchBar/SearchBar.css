@@ -6,8 +6,46 @@
   align-items: center;
   display: flex;
 }
-
-
+.contSearch{
+  position: absolute;
+  width: 100% !important;
+  background-color: #fff;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  z-index: 100000000000;
+}
+.contSearchDisable{
+  position: absolute;
+  width: 100% !important;
+  left: 0;
+  top: -1000px;
+ transition: all 0.3s ease;
+}
+.bgConten{
+  transition: all 0.2s ease;
+  background-color: #0009;
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100vw;
+}
+.bgContenDisable{
+  background-color: #0000;
+  width: 100%;
+  left: 0;
+  transition: all 0.2s ease;
+  top: -100px;
+}
+.listSearch{
+  transition: all 0.2s ease;
+  margin-left: 300px;
+}
 .input-search{
   border-style: none;
   font-size: 18px;

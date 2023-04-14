@@ -50,10 +50,15 @@ module.exports = (sequelize) => {
       active: {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
-      },
+      }, 
+      
+    
     },
     {
       timestamps: false,
-    }
+     
+     
+   
+  }
   );
 };

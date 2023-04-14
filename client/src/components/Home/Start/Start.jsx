@@ -10,9 +10,9 @@ return(
           <video src='https://res.cloudinary.com/dberwyxyq/video/upload/v1679686306/SnowPandaCO/FrontEnd/Copia-de-snowboard_zyoy3c.mp4' alt='video' autoPlay muted loop></video>
           <div className='conteiner-text'>
             <img className='logo' src={Logo} />
-            <h2>Encuentra el equilibrio, mantén la velocidad, disfruta del viaje.</h2>
+            <h2>Find your balance, keep up the speed, enjoy the ride.</h2>
             <Link to='/shop'>
-              <button className='button-inicio'>Tienda</button>
+              <button className='button-inicio'>SHOP</button>
             </Link>
           </div>
         </div>

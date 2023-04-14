@@ -2,6 +2,7 @@
     {
         "firstName": "Facu",
         "comment": "Hermosa Tabla",
-        "rating": 2
+        "rating": 2,
+        "commentDate": "1993-08-18"
 }
    ]
