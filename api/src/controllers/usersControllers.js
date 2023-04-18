@@ -35,7 +35,7 @@ async function postNewUser(req, res) {
         if (user) {
             return res.status(200).send({ message: "User already exists" });
         } else {
-            let newUser = await Users.create({ first_name: given_name, last_name: family_name ,email: email, image: picture});
+            let newUser = await Users.create({ first_name: family_name, last_name: given_name ,email: email, image: picture});
 
             // configurar transporter para enviar correo electrónico
             let transporter = nodemailer.createTransport({
@@ -52,8 +52,8 @@ async function postNewUser(req, res) {
             let mailOptions = {
                 from: "snowpandaco@gmail.com",
                 to: email,
-                subject: "¡Bienvenido!",
-                text: "Hola " + given_name + ",\n\n¡Gracias por registrarte en nuestro sitio web!\n\nSaludos,\nEl equipo de nuestro sitio web"
+                subject: "¡Bienvenido/a a SnowPanda!",
+                text:"Estimado/a " + given_name + ",\n\n¡Bienvenido/a a SnowPanda! Estamos emocionados/as de que te hayas unido a nuestra comunidad de amantes de la nieve y esperamos poder proporcionarte lo mejor en indumentaria y productos para disfrutar de tus aventuras en la montaña.\n\nDesde nuestra fundación, nos hemos comprometido a ofrecer productos duraderos y de alta calidad, diseñados específicamente para las condiciones de la nieve y el frío intenso. Además, nuestro equipo de expertos se asegura de que cada prenda o accesorio cumpla con tus necesidades y expectativas.\n\nAdemás de la calidad de nuestros productos, nuestro objetivo es brindarte una experiencia de compra simple y agradable. Estamos disponibles para ayudarte en cualquier momento y responder todas tus consultas para asegurarnos de que recibas el mejor servicio posible.\n\n¡Gracias por confiar en SnowPanda! Esperamos que nuestros productos te brinden momentos inolvidables en la nieve y que formes parte de nuestra comunidad por mucho tiempo.\n\nSaludos cordiales,\nEl equipo de SnowPanda."
             };
 
             // enviar correo electrónico
@@ -143,6 +143,37 @@ cloudinary.config({
           mobile: mobile,
           image: imageUrl,
        });
+
+       // configurar transporter para enviar correo electrónico
+       let transporter = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 465,
+        secure: true,
+        auth: {
+            user: "snowpandaco@gmail.com", //  correo electrónico
+            pass: "badticzdnopplwxx" //  contraseña se terceros
+        }
+    });
+
+    //modificar que quiero enviar
+    let mailOptions = {
+        from: "snowpandaco@gmail.com",
+        to: email,
+        subject: "Actualizacion de su Perfil",
+        text:"Estimado/a " + first_name + "" + last_name + "\n\nLe informamos que su perfil ha sido actualizado con éxito en nuestra plataforma de SnowPanda. Queremos agradecerle por su continuo apoyo y esperamos seguir brindándole un excelente servicio. Si tiene alguna duda o consulta, no dude en ponerse en contacto con nosotros. Nuestro equipo de soporte estará encantado de ayudarle en todo lo que necesite.\n\nGracias de nuevo por elegir SnowPanda.\n\nAtentamente,\nEquipo de SnowPanda"
+    };
+
+    // enviar correo electrónico
+    transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+            console.log(error);
+            res.status(500).json({ error: error });
+        } else {
+            console.log("Correo electrónico enviado: " + info.response);
+            res.status(201).send({ message: "User was update and email was sent" });
+        }
+    });
+
  
        // Responder con el usuario actualizado
        res.status(201).json(user);
@@ -195,6 +226,30 @@ async function privilegeEstatus(req, res) {
     }
   }
 
+  async function updateAddress(req,res){ 
+    try {
+    let { address } = req.body;
+    const { email } = req.params;
+    console.log(address)
+    console.log(email)
+    const user = await Users.findOne({ where: { email : email } });
+    if (!user) {
+        return res.status(404).json({msg: "user not found"});
+     }
+     user.update({
+        address: address
+     });
+
+     // Responder con el usuario actualizado
+     res.status(201).json(user);
+     
+    } catch (error) {
+        console.log(error)
+        res.status(401).json({ message: error });
+    }
+
+   }
+
 
 module.exports = {
     getAllUsers,
@@ -204,5 +259,6 @@ module.exports = {
     searchUsuario,
     //disableEstatus,
     privilegeEstatus,
+    updateAddress
 
 };

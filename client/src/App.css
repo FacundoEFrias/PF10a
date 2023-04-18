@@ -1,0 +1,32 @@
+#light {
+    background-color: #F6F6F6;
+  }
+  
+  #dark {
+    background-color: #1E1E1E;
+  }
+
+  .switch {
+    position: fixed;
+    top: 80px;
+    right: 30px;
+    display: flex;
+    width: 100vw;
+    height: 100px;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .switch label {
+    margin: 10px;
+    z-index: 1;
+  }
+  
+  #light .switch label {
+    color: black;
+  }
+  
+  #dark .switch label {
+    color: white;
+  }

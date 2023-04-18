@@ -15,7 +15,7 @@ mercadopago.configure({
 
 //!POST purchase
 const postNewBills = async (req, res) => {
-  let { item, quantity, date, price , idUser} = req.body;
+  let { item, quantity, date, price , image, idUser} = req.body;
   console.log(req.body)
  
     try {
@@ -25,6 +25,7 @@ const postNewBills = async (req, res) => {
         quantity,
         date,
         price,
+        image,
         userIdUser: idUser
       }
       let newbill = await Bills.create(bill);
@@ -33,7 +34,7 @@ const postNewBills = async (req, res) => {
         items: [
           {
             id: newbill.id,
-            title: newbill.item,
+            title: newbill.item.join(", "),
             quantity: 1,
             unit_price: newbill.price,
             description: "SnowPanda",
@@ -42,8 +43,8 @@ const postNewBills = async (req, res) => {
         ],
         back_urls: {
           success: "http://localhost:3000/",
-          failure: "https://pf-10a-bhm9.vercel.app/",
-          pending: "https://pf-10a-bhm9.vercel.app/",
+          failure: "http://localhost:3000/",
+          pending: "http://localhost:3000/",
         },
         auto_return: "approved",
         binary_mode: true,
@@ -92,12 +93,90 @@ async function paymentNotification(req, res) {
         }
       )
         .then((numRowsAffected) => {
-         //console.log(`Se actualizaron ${numRowsAffected} registros`);
+        /*+ if (payment.body.status === "approved") {
+          const billsUsers = Bills.findAll({
+              where: {
+              id_payment: payment.body.id
+              },include: {
+                model: Users,
+                attributes: ["email",'first_name', 'last_name']
+                }})
+        const userNames = billsUsers.map(billUser => `${billUser.users}`); 
+        console.log(userNames)         
+       // configurar transporter para enviar correo electrónico
+       let transporter = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 465,
+        secure: true,
+        auth: {
+            user: "snowpandaco@gmail.com", //  correo electrónico
+            pass: "badticzdnopplwxx" //  contraseña se terceros
+        }
+    });
+
+    //modificar que quiero enviar
+    let mailOptions = {
+        from: "snowpandaco@gmail.com",
+        to: email,
+        subject: "Confirmación de pago aprobado e información de envío",
+        text:"Estimado/a " + first_name + "" + last_name +  ",\n\nLe escribo para informarle que su pago ha sido aprobado y está listo para ser procesado en nuestra tienda en línea de Snowpanda. Agradecemos su confianza en nosotros y esperamos que disfrute de su compra.\n\nEn los próximos días, recibirá un correo electrónico con la confirmación del envío de su producto. Estamos trabajando diligentemente para garantizar que su pedido sea enviado lo antes posible y llegue a su destino sin complicaciones.\n\nSi tiene alguna pregunta con respecto al proceso de envío, no dude en ponerse en contacto con nosotros a través de nuestra página web o por correo electrónico.\n\nDe nuevo, le agradecemos por elegir Snowpanda como su tienda en línea. Esperamos que vuelva pronto.\n\nSaludos cordiales,\n\n[Nombre del remitente]\nEquipo de atención al cliente de Snowpanda"
+    };
+
+    // enviar correo electrónico
+    transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+            console.log(error);
+            res.status(500).json({ error: error });
+        } else {
+            console.log("Correo electrónico enviado: " + info.response);
+            res.status(201).send({ message: "Email was sent" });
+        }
+    });
+            } else  {
+
+              const billsUsers = Bills.findAll({
+                where: {
+                id_payment: payment.body.id
+                },include: {
+                  model: Users,
+                  attributes: ["email",'first_name', 'last_name']
+                  }})
+          const userNames = billsUsers.map(billUser => `${billUser.users}`); 
+              let transporter = nodemailer.createTransport({
+                host: "smtp.gmail.com",
+                port: 465,
+                secure: true,
+                auth: {
+                    user: "snowpandaco@gmail.com", //  correo electrónico
+                    pass: "badticzdnopplwxx" //  contraseña se terceros
+                }
+            });
+        
+            //modificar que quiero enviar
+            let mailOptions = {
+                from: "snowpandaco@gmail.com",
+                to: email,
+                subject: "Confirmación de pago no aprobado ",
+                text: "Estimado/a " + first_name + " " + last_name + ",\n\nGracias por su reciente compra en Snowpanda. Lamentablemente, hemos encontrado que su pago no fue aprobado. Sabemos que esto puede ser frustrante, pero queremos asegurarnos de que reciba la mejor experiencia de compra posible.\n\nLe recomendamos que revise su información de pago o vuelva a intentar realizar el pago para completar su compra. Si necesita ayuda adicional, no dude en contactarnos en snowpandaco@gmail.com .\n\nAgradecemos mucho su interés en Snowpanda y esperamos poder satisfacer sus necesidades de equipo para la nieve en el futuro.\n\nSaludos cordiales,\n\nEl equipo de Snowpanda"
+};
+        
+            // enviar correo electrónico
+            transporter.sendMail(mailOptions, function(error, info){
+                if (error) {
+                    console.log(error);
+                    res.status(500).json({ error: error });
+                } else {
+                    console.log("Correo electrónico enviado: " + info.response);
+                    res.status(201).send({ message: "Email was sent" });
+                }
+            });
+            }*/
         })
         .catch((err) => {
           //console.error("Error al actualizar registros:", err);
         });
   }
+  
   res.send();
 }
 
@@ -108,6 +187,7 @@ mercadopago.configure({
 //!--------------
 
 //!GET purchase
+//https://pf10a-production.up.railway.app/bills
 const getAllBills = async (req, res) => {
   try {
     const allBills = await Bills.findAll({include: Users})
@@ -172,7 +252,7 @@ const searchBills = async (req, res) => {
     const bills = await Bills.findAll({
       where,
       include: {
-        model: User,
+        model: Users,
         as: 'user',
         attributes: ['email', 'first_name', 'last_name'],
       },

@@ -38,7 +38,7 @@ const Cards = () => {
   };
 
   useEffect(() => {
-    dispatch(getAllProducts());
+    //dispatch(getAllProducts());
     dispatch(getAllProducts(article));
   }, [dispatch]);
 

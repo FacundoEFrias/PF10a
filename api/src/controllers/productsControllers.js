@@ -207,9 +207,11 @@ async function modifyProducts(req, res) {
 
       res.status(201).json(modifyProduct);
     } else {
+      
       res.status(404).json({ msg: "Product not found" });
     }
   } catch (err) {
+    console.log(err);
     res.status(401).json({ error: err });
   }
 }
@@ -230,6 +232,35 @@ const deleteProducts = async (req, res) => {
     res.status(401).json({ error: err });
   }
 };
+const controlStock = async(req,res)=>{
+  try {
+    let { productsID } = req.params;
+    let {
+      sizes,
+      numbersizes,
+    } = req.body;
+    const modifyStock = await Products.findOne({
+      where: {
+        productsID: productsID,
+      },
+    });
+
+    if (modifyStock) {
+      modifyStock.update({
+        sizes,
+        numbersizes,
+      });
+
+      res.status(201).json(modifyStock);
+    } else {
+      
+      res.status(404).json({ msg: "Product not found" });
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(401).json({ error: err });
+  }
+};
 
 module.exports = {
   getProductsByCategory,
@@ -241,4 +272,5 @@ module.exports = {
   featuredProducts,
   modifyProducts,
   deleteProducts,
+  controlStock
 };

@@ -19,14 +19,12 @@ const SearchBar = () => {
 
   function submitHandleInput(e) {
     e.preventDefault();
-    console.log('dataaaaa',name);
     if (name.length>0) {
       dispatch(getAllProductsName(name));
       navigate('Products/')
 
       dispatch(setCurrentPage(1))
       setDropSearch(false)
-      console.log('aca');
     } else {
       dispatch(getAllProducts())
       dispatch(setCurrentPage(1))
