@@ -56,7 +56,7 @@ module.exports = (sequelize) => {
         defaultValue: false,
       },
       image:{
-        type: DataTypes.ARRAY,
+        type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: true,
       }
       
