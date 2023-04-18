@@ -18,13 +18,13 @@ module.exports = (sequelize) => {
         allowNull: false,
         validate: {
           len: [5, 1000]   // esto es una validacion de cantidad de caracteres.. de 5 a 1000.. sino falla el posteo
-      }
-      },
-      commentDate: {
-        type: DataTypes.DATEONLY,
-        allowNull: false,
-    },
+      }},
 
+      productName:{
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+  
       rating: {
         type: DataTypes.REAL,
             allowNull: false,
@@ -38,8 +38,8 @@ module.exports = (sequelize) => {
         defaultValue: false,
     }
     },
-    {
-      timestamps: false,
-    }
+    // {
+    //   timestamps: false,
+    // }
   );
 };

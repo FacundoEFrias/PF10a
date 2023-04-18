@@ -2,6 +2,7 @@ import { React, useEffect, useState } from 'react'
 import { useAuth0 } from "@auth0/auth0-react";
 import { useDispatch } from 'react-redux'
 import { createNewUser } from '../../Redux/actions/index.js'
+
 require('./Login.css');
 
 
@@ -20,6 +21,11 @@ const Login = () => {
 			if (isAuthenticated && user && !loggedIn) {
 				dispatch(createNewUser(user.email));
 				setLoggedIn(true);
+				/*Swal.fire({
+					icon: 'success',
+					title: '¡Bienvenido!',
+					text: 'Te has registrado correctamente'
+					});*/
 			}
 		}, [isAuthenticated, user, loggedIn, dispatch]);
 	}

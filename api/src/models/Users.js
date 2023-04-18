@@ -44,7 +44,7 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
     },
     address: {
-      type: DataTypes.JSON, // Se cargó DataTypes.JSON porque podemos diferenciar el domicilio del código postal, y demás información. (Piso, Departamento)
+      type: DataTypes.STRING, // Se cargó DataTypes.JSON porque podemos diferenciar el domicilio del código postal, y demás información. (Piso, Departamento)
     },
   });
 };

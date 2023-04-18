@@ -43,13 +43,14 @@ console.log(allUsers, "all")
 
   return (
     
-<div className="dropdown ms-3">
+    
+<div className="cart_manager_">
 
 {allUsers? allUsers?.sort((a, b) => a.idUser - b.idUser).map(e=> 
-  <main className="container_manager">
-  <section className={e.status ? "card_" : "mariela"}>
-    <div className="product-image">
-      <img className="img_" src={e.image} alt="OFF-white Red Edition" draggable="false" />
+  <main className="_cardCont">
+  <section className={e.status ? "_card" : "of_cart"}>
+    <div className="-imageproduct">
+      <img className="_img" src={e.image} alt="Missing image" draggable="false" />
     </div>
     <div className="product-info">
       <h2>{e.first_name}{e.last_name}</h2>
@@ -57,7 +58,7 @@ console.log(allUsers, "all")
     
     </div>
     <div className="btn_">
-      <button className="buy-btn">Edit Now</button>
+      <button className="-btnbuy">Edit Now</button>
 
       {e.status === "active" ?<button className={!e.privilige ? "fav" : "featured"}  onClick={()=>handleFeaturedProduct(e.idUser)}>
         <svg className="svg" id="i-star" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">

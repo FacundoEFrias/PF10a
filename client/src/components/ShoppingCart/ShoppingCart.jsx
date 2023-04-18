@@ -49,7 +49,6 @@ const clearCart = () => {
   // window.localStorage.setItem("totalprices", JSON.stringify(priceTotal));
   // window.localStorage.setItem("countproducts", JSON.stringify(countProducts));
 
-  //  console.log(allProducts,'facu')
  function decrementProduct(product) {
     const productToUpdate = allProducts?.find(
       (el) => el.productsID === product.productsID && el.size === product.size
@@ -75,7 +74,6 @@ const clearCart = () => {
                         quantity: Number(size.quantity - 1),
                       }
                     : size,
-                console.log("facu")
               ),
 
               // price: Number(productToUpdate.price) * productToUpdate?.sizes.map(el => el.size === product.size ? Number(el.quantity): null )
@@ -83,8 +81,6 @@ const clearCart = () => {
           : { ...el }
       );
 
-      //   console.log(productToUpdate.price, 'preiceee')
-      // console.log(productToUpdate, 'porudoc')
       setAllProducts(updatedProduct);
       setCountProducts(countProducts - 1);
       setPriceTotal( priceTotal - Number(productToUpdate.price))
@@ -122,7 +118,6 @@ const clearCart = () => {
                         quantity: Number(size.quantity - 1),
                       }
                     : size,
-                console.log("facu")
               ),
 
               // price: Number(productToUpdate.price) * productToUpdate?.sizes.map(el => el.size === product.size ? Number(el.quantity): null )
@@ -130,8 +125,6 @@ const clearCart = () => {
           : { ...el }
       );
 
-      //   console.log(productToUpdate.price, 'preiceee')
-      // console.log(productToUpdate, 'porudoc')
       setAllProducts(updatedProduct);
       setCountProducts(countProducts - 1);
       setPriceTotal( priceTotal - Number(productToUpdate.price))
@@ -169,7 +162,6 @@ const clearCart = () => {
                         quantity: Number(size.quantity - 1),
                       }
                     : size,
-                console.log("lucho")
               ),
 
               // price: Number(productToUpdate.price) * productToUpdate?.sizes.map(el => el.size === product.size ? Number(el.quantity): null )
@@ -177,8 +169,7 @@ const clearCart = () => {
           : { ...el }
       );
 
-      //   console.log(productToUpdate.price, 'preiceee')
-      // console.log(productToUpdate, 'porudoc')
+
       setAllProducts(updatedProduct);
       setCountProducts(countProducts - 1);
       setPriceTotal( priceTotal - Number(productToUpdate.price))
@@ -205,7 +196,6 @@ const clearCart = () => {
     const productNext = allProducts.find(
       (el) => el.productsID === product.productsID && el.size === product.size
     );
-    // console.log(allProducts, "allprodict");
     if (productNext) {
       const updateProduct = allProducts.map((el) =>
         el.productsID === productNext.productsID && el.size === productNext.size
@@ -369,7 +359,6 @@ const clearCart = () => {
           <BasketQty>
             {(el.price *
               (el.sizes?.reduce((acc, size) => {
-                console.log("gato");
                 if (size.size === el.size) {
                   const sizeQuantity =
                     el.sizes.find((e) => e.size === el.size)?.quantity || 0;
@@ -378,7 +367,6 @@ const clearCart = () => {
                 return acc;
               }, 0) ||
                 el.numbersizes?.reduce((acc, size) => {
-                  console.log("perro");
                   if (size.size === el.size) {
                     const sizeQuantity =
                       el.numbersizes.find((e) => e.size === el.size)
@@ -388,7 +376,6 @@ const clearCart = () => {
                   return acc;
                 }, 0) ||
                 el.boardsizes?.reduce((acc, size) => {
-                  console.log("pato");
                   const sizeQuantity =
                     el.boardsizes.find((e) => e.size === el.size)?.quantity ||
                     0;

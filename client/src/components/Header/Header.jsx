@@ -25,7 +25,7 @@ const Header = ({ navigateToCategory, categories, countProducts }) => {
 
     perfil = datos.find(obj => obj.email);
 
-    console.log('perfil encontrado:', perfil);
+    console.log('Perfil encontrado:', perfil);
   } catch (error) {
     console.log(error);
   }
@@ -49,10 +49,6 @@ const Header = ({ navigateToCategory, categories, countProducts }) => {
       </div>
     );
   }
-
-
-  console.log(user, "PATATA")
-
 
 
   function handleClick() {
@@ -119,9 +115,9 @@ const Header = ({ navigateToCategory, categories, countProducts }) => {
           <div className={dropActive ? 'drop-active' : 'drop-null'}>
             {dropActive ?
             <>
-              <a>Administrador</a>
               <Link to='/User' className="text-decoration-none"><a>Ver Perfil</a></Link>
-              <a>Mis Compras</a>
+              <a class="dropdown-item" href="/ProfileBills">Mis Compras</a>
+              <a>¿Mis Reviews?</a>
               <a><Logout /></a>
             </> :
             null}

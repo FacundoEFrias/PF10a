@@ -1,6 +1,6 @@
 
 const { Router } = require("express");
-const {getAllUsers,postNewUser, DisableUser, ModifyUser, searchUsuario,disableEstatus,privilegeEstatus } = require('../controllers/usersControllers')
+const {getAllUsers,postNewUser, DisableUser, ModifyUser, searchUsuario,disableEstatus,privilegeEstatus, updateAddress } = require('../controllers/usersControllers')
 
 const router = Router();
 
@@ -11,6 +11,7 @@ router.put("/modify/:email", ModifyUser)
 router.get("/:email", searchUsuario)
 //router.put("/disable/:idUser'", disableEstatus)
 router.put('/privilege/:idUser', privilegeEstatus)
+router.put("/address/:email",updateAddress)
 
 
  

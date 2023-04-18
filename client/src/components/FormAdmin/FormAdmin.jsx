@@ -43,8 +43,6 @@ const validate = (input) => {
 };
 //!!
 function Create() {
-    
-    console.log("HIJOS DE PUTAAA")
 
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -236,7 +234,6 @@ function Create() {
     }
   }
 
-  console.log(input.category, "CATEGORY");
   //!!!!!
 
   function handleChange(e) {
@@ -251,9 +248,6 @@ function Create() {
       })
     );
   }
-
-  console.log("acac", input);
-
   
 
   return (

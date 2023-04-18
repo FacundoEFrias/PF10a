@@ -17,7 +17,7 @@ const {
       const emptyProducts = await Products.findAll({});
       if(!emptyProducts){
         await Products.bulkCreate(loadProducts);
-      console.log('Hotels loaded ok to DB')
+      console.log('Products loaded ok to DB')
       }
       // await Favorites.bulkCreate(loadFavorites);
       // console.log('Favorites loaded ok to DB')
@@ -27,7 +27,7 @@ const {
       await Reviews.bulkCreate(loadReviews);
       console.log('Reviews loaded ok to DB');
       await Products.bulkCreate(loadProducts);
-      console.log('Products loaded ok to DB');
+      console.log('Products loaded ok to DB re-checked');
   
     } catch(error){
       console.log(error);
