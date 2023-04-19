@@ -58,7 +58,15 @@ module.exports = (sequelize) => {
       image:{
         type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: true,
-      }
+      },
+       product_ID:{
+        type: DataTypes.ARRAY(DataTypes.INTEGER),
+        allowNull: true,
+      },
+      category_name:{
+        type: DataTypes.ARRAY(DataTypes.STRING),
+        allowNull: true,
+      },
       
     
     },
