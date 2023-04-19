@@ -1,5 +1,4 @@
 import React from "react";
-import './PrivacyPolicies.css'
 
 
 
@@ -10,7 +9,7 @@ function PrivacyPolicies() {
     };
     return (
         <div className="preguntas-frecuentes">
-            <h3 class="text-center mt-5  freq-title">PRIVACY POLICIES</h3>
+            <h3 class="text-center mt-5 titulos-color">PRIVACY POLICIES</h3>
             <div className="pregunta">
                 <h3>Information we collect</h3>
                 <p >We collect information that you provide directly to us, such as your name, email address, payment information, shipping information, and any other information you provide when making a purchase or registering on our website.</p>
@@ -34,7 +33,7 @@ function PrivacyPolicies() {
             <div className="pregunta">
                 <h3 >Contact</h3>
                 <p >If you have any questions or concerns about our privacy policies, please contact us via email snowpandaco@gmail.com</p>
-                <button className='correo-button' onClick={handleClick}>Send mail </button>
+                <button className='botonGeneral' onClick={handleClick}>Send mail </button>
             </div>
         </div>
     )

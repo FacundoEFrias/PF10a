@@ -51,7 +51,7 @@ const Home = ({setAllProducts,setPriceTotal,setCountProducts}) => {
   }, []);
 
   return (
-    <div className='container' >
+    <div className='home' >
       <Start/>
       <AboutUs/>
       <Destacados datos={datos} />

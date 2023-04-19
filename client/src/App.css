@@ -8,13 +8,11 @@
 
   .switch {
     position: fixed;
-    top: 80px;
-    right: 30px;
+    right: 20px;
     display: flex;
-    width: 100vw;
-    height: 100px;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
+    margin-top: 20px;
     z-index: 9999;
   }
   
@@ -30,3 +28,54 @@
   #dark .switch label {
     color: white;
   }
+
+  /* titulos generales */
+  #light .titulos-color{
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-secondary-rgb),var(--bs-text-opacity))!important;
+}
+#dark .titulos-color{
+    --bs-text-opacity: 1;
+    color: #D6D6D6;
+}
+
+/* boton general */
+#light .botonGeneral{
+  margin-left: 90px;
+  margin-right: 90px;
+  display: inline-block;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 40px;
+  transition: .5s;
+  background-color: #F6F6F6;
+ border: 1px solid #010E13;
+ color: #010E13;
+}
+
+#ligth .botonGeneral:hover{
+  background-color: #287094;
+  color: #F6F6F6;
+  border: #287094;
+ 
+}
+#dark .botonGeneral{ 
+  margin-left: 90px;
+  margin-right: 90px;
+  display: inline-block;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 40px;
+  transition: .5s;
+  background-color: #1E1E1E;
+  border: 1px solid #F6F6F6;
+  color: #F6F6F6;
+}
+
+#dark .botonGeneral:hover{
+   background-color: #6096BA;
+   color: #F6F6F6;
+   border: #6096BA;
+}

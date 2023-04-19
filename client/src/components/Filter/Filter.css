@@ -36,3 +36,63 @@
     border-radius: 5px;
     border: 1px solid #ccc;
   }
+
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: black;
+  } 
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .hamburger-line {
+    display: block;
+    width: 30px;
+    height: 2px;
+    margin: 5px;
+    background-color: black;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .open .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .open .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .open .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  @media (max-width: 1050px) {
+    .sidebar {
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 90%;
+      height: auto;  
+      margin-left: 5%;
+    }
+    .paginat{
+      margin-top: 10px;
+    }
+  }
+
+
+ 
+  

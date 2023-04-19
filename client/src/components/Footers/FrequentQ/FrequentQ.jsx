@@ -4,7 +4,7 @@ import './FrequentQ.css'
 function FrequentQ (){
 return(
     <div className="preguntas-frecuentes">
-    <h2 class="text-center mt-5  freq-title">FREQUENT QUESTIONS</h2>
+    <h2 class="text-center mt-5 titulos-color">FREQUENT QUESTIONS</h2>
     <div className="pregunta">
       <h3>What are the turnaround times?</h3>
       <p>

@@ -1,40 +1,51 @@
 .about-us p{
+    margin-left: 90px;
+    margin-right: 90px;
     font-size: 14px;
     line-height: 25px;
-    color: #000000;
-    margin-bottom: 12px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
-.aboutUsTitle{
-    font-size: 34px;
-    font-weight: bold;
-    margin: 20px 0;
-    letter-spacing: 2px;
+#light .about-us p{
     color: #010E13;
 }
-.aboutUsTitle span{
+#dark .about-us p{
+    color: #F6F6F6;
+}
+.aboutUsTitle{
+    margin-left: 90px;
+    margin-right: 90px;
+    font-size: 34px;
+    font-weight: bold;
+    
+    letter-spacing: 2px;
+    
+}
+#light .aboutUsTitle{
+    color: #010E13;
+}
+#dark .aboutUsTitle{
+    color: #F6F6F6;
+}
+#light .aboutUsTitle span{
  color: #287094;
 }
+#dark .aboutUsTitle span{
+    color: #6096BA;
+}
 .aboutProyecto{
+    margin-left: 90px;
+    margin-right: 90px;
     font-size: 18px;
     font-weight: 500;
     text-transform: uppercase;
-    margin: 20px 0;
     letter-spacing: 1px;
+    padding-bottom: 15px;
+}
+#light .aboutProyecto{
+    color:#010E13;
 }
 
-.button-about{
-    display: inline-block;
-    text-decoration: none;
-    color: #010E13;
-    border: none;
-    border-radius: 5px;
-    border: 1px solid #010E13;
-    padding: 10px 40px;
-    margin: 20px 0;
-    transition: .5s;
+#dark .aboutProyecto{
+    color: #F6F6F6;
 }
-.button-about:hover{
-    background-color: #287094;
-    color: #fff;
-    border: #287094;
- }

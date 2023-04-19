@@ -4,7 +4,7 @@ import './Values.css';
 const Values =()=>{
     return (
         <div className='wrapper'>
-            <h1 className='text-center mt-5 text-secondary'>OUR VALUES</h1>
+            <h1 className='text-center mt-5 titulos-color'>OUR VALUES</h1>
             <div className='cols'>
                 {/* valor 1 */}
                 <div className="col" ontouchstart="this.classList.toggle('hover');">

@@ -25,7 +25,6 @@
 	background-image: url('https://res.cloudinary.com/dberwyxyq/image/upload/v1680294019/SnowPandaCO/FrontEnd/PANDA-1_mvjg5y.jpg');
 	background-size: cover;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.25);
-	/* border-radius: 10px; */
 	  background-position: center;
 	  -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
 	  transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
@@ -37,7 +36,6 @@
 	  text-align: center;
 	  min-height: 400px;
 	  height: auto;
-	  /* border-radius: 10px; */
 	  color: #fff;
 	  font-size: 1.5rem;
   }
@@ -106,12 +104,19 @@
 	  font-size: 1.5rem;
   }
   
-  .back{
+  #light .back{
 	background: #cedce7;
 	background: -webkit-linear-gradient(45deg,  #cedce7 0%,#023246 100%);
 	background: -o-linear-gradient(45deg,  #cedce7 0%,#023246 100%);
 	background: linear-gradient(45deg,  #cedce7 0%,#023246 100%);
   }
+#dark .back{
+	background: #cedce7;
+	background: -webkit-linear-gradient(45deg,  #1E1E1E 0%,#023246 100%);
+	background: -o-linear-gradient(45deg,  #1E1E1E 0%,#023246 100%);
+	background: linear-gradient(45deg,  #1E1E1E 0%,#023246 100%);
+}
+
   
   .front:after, .front2:after,.front3:after,.front4:after{
 	  position: absolute;
@@ -122,11 +127,17 @@
 	  height: 100%;
 	  content: '';
 	  display: block;
-	  opacity: .6;
-	  background-color:#023246;
 	  -webkit-backface-visibility: hidden;
 			  backface-visibility: hidden;
 	  /* border-radius: 10px; */
+  }
+  #light .front:after, .front2:after,.front3:after,.front4:after{
+	opacity: .6;
+	background-color:#023246;
+  }
+  #dark .front:after, .front2:after,.front3:after,.front4:after{
+	opacity: .6;
+	background-color:#023246;
   }
   
   .containers:hover .front,
@@ -231,23 +242,11 @@
 	font-family: 'Montserrat';
 	font-weight: 300;
   }
-  
-  @media screen and (max-width: 64rem){
-	.col{
-	  width: calc(33.333333% - 2rem);
-	}
-  }
-  
-  @media screen and (max-width: 48rem){
-	.col{
-	  width: calc(50% - 2rem);
-	}
-  }
-  
-  @media screen and (max-width: 32rem){
-	.col{
-	  width: 100%;
-	  margin: 0 0 2rem 0;
+
+
+  @media screen and (max-width: 768px) {
+	.cols {
+	  flex-direction: column;
 	}
   }
   

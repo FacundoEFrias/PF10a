@@ -1,6 +1,6 @@
 .site-footer
 {
-  background-color:#023246;
+  background-color:#287094;
   padding:45px 0 20px;
   font-size:15px;
   line-height:24px;
@@ -25,11 +25,11 @@
 }
 .site-footer a
 {
-  color:#7F949F;
+  color:#287094;
 }
 .site-footer a:hover
 {
-  color:#F6F6F6;
+  color:#287094;
   text-decoration:none;
 }
 .footer-links

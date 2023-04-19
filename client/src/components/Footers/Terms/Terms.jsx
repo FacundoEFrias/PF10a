@@ -1,11 +1,11 @@
 import React from "react";
-import './Terms.css'
+
 import { Link } from 'react-router-dom';
 
 function Terms (){
     return(
         <div className="preguntas-frecuentes">
-        <h3 class="text-center mt-5  freq-title">TERMS AND CONDITIONS</h3>
+        <h3 class="text-center mt-5 titulos-color">TERMS AND CONDITIONS</h3>
         <div className="pregunta">
             <h3>Introduction</h3>
             <p >Welcome to SnowpandaCo! These Terms and Conditions govern the use of our company website and the services we offer. By accessing and using our website, you agree to comply with these Terms and Conditions and all applicable laws and regulations. If you do not agree to these Terms and Conditions, please do not use our website.</p>

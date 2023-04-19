@@ -1,10 +1,10 @@
 import React from "react";
-import './PagosRetiros.css'
+
 
 function PagosRetiros() {
     return (
         <div className="preguntas-frecuentes">
-        <h2 class="text-center mt-5  freq-title">Payments and Withdrawals</h2>
+        <h2 class="text-center mt-5 titulos-color">PAYMENTS AND WITHDRAWALS</h2>
             <div className="pregunta">
                 <h3 className="payment-title">Credit or debit card</h3>
                 <p className="payment-text">We accept credit and debit card payments through

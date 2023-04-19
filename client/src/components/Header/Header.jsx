@@ -87,7 +87,7 @@ const Header = ({ navigateToCategory, categories, countProducts }) => {
 
 
 
-      {!isAuthenticated ? null : <div class="dropdown">
+      {/* {!isAuthenticated ? null : <div class="dropdown">
         <button class="btn btn-bd-light dropdown-toggle" id="bd-versions" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
           <span class="d-none d-lg-inline">Admin Console</span>
         </button>
@@ -102,25 +102,39 @@ const Header = ({ navigateToCategory, categories, countProducts }) => {
 
           <li><a class="dropdown-item" href="/ManageReviews">Manage Reviews</a></li>
         </ul>
-      </div>}
+      </div>} */}
 
 
 
       {!isAuthenticated ? <Login /> :
         <div onMouseOver={() => setDropActive(true)} onMouseOut={() => setDropActive(false)}>
-          <button className={(rutaUrl.includes('User')) ? 'btnUser active' : 'btnUser'}>
+          <button className={(rutaUrl.includes('User')) ? 'btnUser active border border-white' : 'btnUser'}>
             <FaUserAlt />
           </button>
 
           <div className={dropActive ? 'drop-active' : 'drop-null'}>
             {dropActive ?
-            <>
-              <Link to='/User' className="text-decoration-none"><a>Ver Perfil</a></Link>
-              <a class="dropdown-item" href="/ProfileBills">Mis Compras</a>
-              <a>¿Mis Reviews?</a>
-              <a><Logout /></a>
-            </> :
-            null}
+
+
+              <>
+                <Link to='/User' className="text-decoration-none"><a>Ver Perfil</a></Link>
+                <a class="dropdown-item" href="/ProfileBills">Mis Compras</a>
+                <a class="dropdown-item" href="/ProfileReview">Mis Reviews</a>
+                <a><Logout /></a>
+                <div class="">
+                  <button class="button-AdminManage dropdown-toggle ps-0" id="bd-versions" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
+                    <span class="d-none d-lg-inline">Admin Console</span>
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-end mt-0 pt-0" aria-labelledby="bd-versions">
+                    <li><a class="dropdown-item text-black" href="/ManageProfiles">Manage Profiles</a></li>
+                    <li><a class="dropdown-item text-black" href="/ManageProducts">Manage Products</a></li>
+                    <li><a class="dropdown-item text-black" href="/ManageBills">Manage Bills</a></li>
+                    <li><a class="dropdown-item text-black" href="/ManageReviews">Manage Reviews</a></li>
+                  </ul>
+                </div>
+              </> :
+              null}
+ 
           </div>
         </div>
       }
