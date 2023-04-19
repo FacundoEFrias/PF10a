@@ -98,6 +98,7 @@ const FormCreatePoke = () => {
                         alt="OFF-white Red Edition"
                         draggable="false"
                       />
+
                     </div>
                     <div className="-infoproduct">
                       <h2>{e.name}</h2>
@@ -105,17 +106,20 @@ const FormCreatePoke = () => {
                       <p>Brand: {e.brand.brandName}</p>
 
                       <div className="price_">${e.price}</div>
-                    </div>
+                      <div></div>
 
-                    {/* <div className="btn_">
-                      <div className="trying">
-                        <h1>Stock</h1>
+                    </div>
+                    <div><h2>Stock:</h2></div>
+                    <div className="btn_">
+
+                      <div className="stock_">
                         <h2>
                           {e.sizes !== null
                             ? e.sizes.map((s) => {
                               return (
-                                <div>
-                                  <h1>{s.size}</h1>
+                                <div className="stock_sizes">
+                                  <h1>{s.size}:</h1>
+
                                   <button
                                     onClick={() => decrementStock(e, s)}
                                   >
@@ -133,8 +137,8 @@ const FormCreatePoke = () => {
                             : e.boardsizes !== null
                               ? e.boardsizes.map((b) => {
                                 return (
-                                  <div>
-                                    <h1>{b.size}</h1>
+                                  <div className="stock_sizes">
+                                    <h1>{b.size}:</h1>
                                     <button
                                       onClick={() => decrementStock(e, b)}
                                     >
@@ -152,29 +156,31 @@ const FormCreatePoke = () => {
                               : e.numbersizes !== null
                                 ? e.numbersizes.map((n) => {
                                   return (
-                                    <div>
-                                      <h1>{n.size}</h1>
-                                      <button
-                                        onClick={() => decrementStock(e, n)}
-                                      >
-                                        -
-                                      </button>
-                                      <h2>{n.stock}</h2>
-                                      <button
-                                        onClick={() => incrementStock(e, n)}
-                                      >
-                                        +
-                                      </button>
-                                    </div>
+                                    <div className="stock_numbersizes">
+                                      <h1>{n.size}:</h1>
+                                      
+                                        <button
+                                          onClick={() => decrementStock(e, n)}
+                                        >
+                                          -
+                                        </button>
+                                        <h2>{n.stock}</h2>
+                                        <button
+                                          onClick={() => incrementStock(e, n)}
+                                        >
+                                          +
+                                        </button>
+                                      </div>
+                                   
                                   );
                                 })
                                 : null}
-                        </h2> */}
-                      {/* </div> */}
-                    {/* </div> */}
+                        </h2>
+                      </div>
+                    </div>
                     <div className="botonera">
                       <button value={e.productsID} className="-btnbuy">
-                        <Link to={`/FormAdminProduct/${e.productsID}`}>
+                        <Link className="text-white" to={`/FormAdminProduct/${e.productsID}`}>
                           Edit Now
                         </Link>
                       </button>

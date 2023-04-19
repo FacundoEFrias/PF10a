@@ -45,7 +45,7 @@ const Cards = () => {
   // <Link to={'/shoes/' + el.id +'/buyNow'}
   return (
     <div>
-      <Pagination
+        <Pagination       
         productPerPage={productPerPage}
         filteredProducts={filteredProducts?.length}
         pagination={pagination}

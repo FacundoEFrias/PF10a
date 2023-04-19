@@ -17,14 +17,15 @@ import {
   GET_ALL_BILLS,
   CREATE_NEW_REVIEWS,
   GET_ALL_REVIEWS,
+  SET_ACTIVE_BILLS,
   UPDATE_STOCK
 } from "../actions-types/index.js";
 const { REACT_APP_GET_ALL_PRODUCTS } = process.env;
 import axios from "axios";
 
-//const url = "https://pf10a-production.up.railway.app";
+const url = "https://pf10a-production.up.railway.app";
 
- const url = 'http://localhost:3001'
+ //const url = 'http://localhost:3001'
 
 
 export function getAllProducts(categoria) {
@@ -155,6 +156,13 @@ export function getAllUsers(){
 export function setCurrentPage(payload){
   return {
     type: SET_CURRENT_PAGE,
+    payload
+  }
+}
+
+export function setReviewButton(payload){
+  return {
+    type: SET_ACTIVE_BILLS,
     payload
   }
 }

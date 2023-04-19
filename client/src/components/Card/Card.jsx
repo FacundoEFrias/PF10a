@@ -26,9 +26,9 @@ export default function Card({
   const [selectedSize, setSelectedSize] = useState("");
   const { loginWithRedirect, isAuthenticated, user } = useAuth0();
 
-
+console.log( review, 'oooooooooooooooooooo')
 try {
-  var productReview = review.filter((e) => e.productName === productInfoId.item);
+  var productReview = review.map((e) => e);
 
 } catch (error) {
   console.log(error)
@@ -69,17 +69,13 @@ try {
         (el) => el.productsID === product.productsID && el.size === product.size
       )
     ) {
-      Swal.fire({
-        icon: "success",
-        title: "Aggregate",
-        text: "Added to cart successfully",
-      });
+      
 
       const products = allProducts.map((el) =>
         el.productsID === product.productsID && el.size === product.size
           ? {
               ...el,
-              price: Number(el.price) + Number(product.price),
+              // price: Number(el.price) + Number(product.price),
               sizes: el.sizes?.map((size) =>
                 size.size === product.size
                   ? {
@@ -129,6 +125,8 @@ try {
           ...el,
           stock: el.size === product.size ? Number(el.stock - 1) : null,
         })),
+        
+
       };
       if (
         !newProduct.sizes &&
@@ -145,6 +143,11 @@ try {
       setAllProducts([...allProducts, newProduct]);
     }
     setOneProducts([...allProducts, product]);
+    Swal.fire({
+      icon: "success",
+      title: "Done",
+      text: "Added to shopping cart successfully",
+    });
   }
 
   window.localStorage.setItem("productscart", JSON.stringify(allProducts));
@@ -255,17 +258,15 @@ try {
             </div>
             {/* //! REVIEW */}
             <div>
-            {productReview?.map((el) => {
-        return (
-          <div class="card border-dark mb-3">
-            <div class="card-header">{el.firstName}</div>
-            <div class="card-body text-dark">
-              <h5 class="card-title">{el.rating}</h5>
-              <p class="card-text">{el.comment}</p>
-            </div>
-          </div>
-        );
-      })}
+            {productReview?.map((el) => el.productName === productInfoId.name && el.idReviews ? 
+            ( <div class="card border-dark mb-3">
+             <div class="card-header">{el.firstName}</div>
+             <div class="card-body text-dark">
+               <h5 class="card-title">{el.rating}</h5>
+               <p class="card-text">{el.comment}</p>
+             </div>
+             </div>
+             ): null)}
             {/* //! REVIEW */}
             </div>
           </div>
@@ -276,3 +277,13 @@ try {
     </div>
   );
 }
+
+
+
+{/* <div class="card border-dark mb-3">
+<div class="card-header">{el.firstName}</div>
+<div class="card-body text-dark">
+  <h5 class="card-title">{el.rating}</h5>
+  <p class="card-text">{el.comment}</p>
+</div>
+</div> */}

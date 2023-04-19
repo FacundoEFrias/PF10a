@@ -7,7 +7,6 @@
     margin: 0;
     padding: 0;
     background-color: rgba(0, 0, 0, .7);
-    /* height: 100vh; */
 }
 .video-container video{
     overflow-x: hidden;
@@ -51,3 +50,44 @@
     background-color: #023246;
     border: 2px solid #023246;
 }
+
+@media only screen and (max-width: 412px) {
+    .video-container {
+      height: 400px;
+    }
+    
+    .video-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .conteiner-text {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 80%;
+    }
+    
+    .conteiner-text .logo {
+      max-width: 200px;
+      margin-bottom: 20px;
+    }
+    
+    .conteiner-text h2 {
+      font-size: 18px;
+      line-height: 30px;
+      margin-bottom: 30px;
+    }
+    
+    .button-inicio {
+      display: block;
+      width: 100%;
+      max-width: 200px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      font-size: 16px;
+    }
+  }

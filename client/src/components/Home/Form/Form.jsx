@@ -82,7 +82,7 @@ function Form() {
 
   return (
     <div className="contacto" id='contacto'>
-      <h1 className='text-center mt-5 text-secondary'>CONTACT US</h1>
+      <h1 className='text-center mt-5 titulos-color'>CONTACT US</h1>
       <form onSubmit={handleSubmit} action="https://formsubmit.co/e413674aa8b810409548ae9d7c693fa6" method="POST">
       <div className="contenedor-form">
         <div className="input-container">

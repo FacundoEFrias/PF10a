@@ -24,7 +24,7 @@ const Reviews = ({ item }) => {
   // const handleFirstNameChange = (e) => {
   //     setInput({ ...input, firstName: e.target.value });
   // };
-  console.log(item, "MARIELA 2.0");
+  
   function handleChange(e) {
     console.log("input", input);
     setInput({

@@ -25,6 +25,8 @@ import Terms from "./components/Footers/Terms/Terms";
 import PrivacyPolicies from  './components/Footers/PrivacyPolicies/PrivacyPolicies'
 import ManageBills from "./components/Manage_Bills/Manage_Bills"
 import ProfileBills from "./components/Profile_Bills/Profile_Bills"
+import ProfileReview from "./components/Profile_Review/Profile_Review"
+
 
 //modo oscuro
 import { createContext } from 'react';
@@ -68,7 +70,7 @@ const [oneProducts, setOneProducts] = useState([]);
       <div className='App' id={theme}>
       <div className="switch">
           <label> {theme === "light" ? "Light Mode" : "Dark Mode"}</label>
-          <ReactSwitch onChange={toggleTheme} checked={theme === "dark"} />
+          <ReactSwitch onChange={toggleTheme} checked={theme === "light"} />
         </div>
         <Routes>
           <Route exact path='/Shop' element={<Tienda />} />
@@ -92,6 +94,8 @@ const [oneProducts, setOneProducts] = useState([]);
          <Route exact path="/PrivacyPolicies" element={<PrivacyPolicies/>}/>
          <Route exact path="/ManageBills" element={<ManageBills/>}/>
          <Route exact path="/ProfileBills" element={<ProfileBills/>}/>
+         <Route exact path="/ProfileReview" element={<ProfileReview/>}/>
+         
 
         </Routes>
          

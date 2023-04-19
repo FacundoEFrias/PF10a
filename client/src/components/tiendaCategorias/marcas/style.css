@@ -1,81 +1,33 @@
-.items{
+.card {
+    margin: 30px auto;
+    width: 300px;
+    height: 150px;
+    border-radius: 40px;
+    box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
     cursor: pointer;
-    transition:all 0.2s ease-in-out;
+    transition: 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+#light .card{
+    background-color: #F6F6F6;
+}
+#dark .card{
+    background-color:#A6B3BC ;
+}
+.card .card_image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
     display: block;
-    }
-
-/* .items:hover{
-    background-color: #3f3f3f;
-    color: #fff !important;
-} */
-
-.fluor1{
-    border-radius: 15px;
+    display: block;
+    margin: 0 auto;
 }
 
-.fluor {
-    --border-radius: 15px;
-    --border-width: 4px;
-    appearance: none;
-    position: relative;
-    padding: 1em 2em;
-    border: 0;   
-    font-family: "Roboto", Arial, "Segoe UI", sans-serif;
-    font-size: 18px;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: #050000;
-    z-index: 2;
-   }
-   
-   .fluor::after {
-    --m-i: linear-gradient(#000, #000);
-    --m-o: content-box, padding-box;
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    padding: var(--border-width);
-    border-radius: var(--border-radius);
-    background-image: conic-gradient(
-           #488cfb,
-           #29dbbc,
-           #ddf505,
-           #ff9f0e,
-           #e440bb,
-           #655adc,
-           #488cfb
-       );
-    -webkit-mask-image: var(--m-i), var(--m-i);
-    mask-image: var(--m-i), var(--m-i);
-    -webkit-mask-origin: var(--m-o);
-    mask-origin: var(--m-o);
-    -webkit-mask-clip: var(--m-o);
-    mask-composite: exclude;
-    -webkit-mask-composite: destination-out;
-    filter: hue-rotate(0);
-    animation: rotate-hue linear 500ms infinite;
-    animation-play-state: paused;
-   }
-   
-   .fluor:hover::after {
-    animation-play-state: running;
-   }
-   
-   @keyframes rotate-hue {
-    to {
-     filter: hue-rotate(1turn);
-    }
-   }
-   
-   .fluor,
-   .fluor::after {
-    box-sizing: border-box;
-   }
-   
-   .fluor:active {
-    --border-width: 5px;
-   }
-
+.card:hover {
+    transform: scale(0.9, 0.9);
+    box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+      -5px -5px 30px 15px rgba(0,0,0,0.22);
+}

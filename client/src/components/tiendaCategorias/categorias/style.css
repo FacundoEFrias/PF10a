@@ -7,8 +7,11 @@
     text-align: center;
 }
 
-.text:hover{
+#light .text:hover{
     color:#287094 !important;
+}
+#dark .text:hover{
+    color:#6096BA !important;
 }
 
 .fw-normal{
