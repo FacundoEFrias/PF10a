@@ -107,13 +107,8 @@ async function paymentNotification(req, res) {
           })
             .then((billsUsers) => {
               console.log(billsUsers);
-              const userNames = billsUsers.map(billUser => `${billUser.users}`);
-              console.log(userNames);
-            })
-            .catch((error) => {
-              console.log(error);
-            });
-       // configurar transporter para enviar correo electrónico
+              console.log(billsUsers.firts_name)
+                 // configurar transporter para enviar correo electrónico
        let transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
         port: 465,
@@ -142,6 +137,11 @@ async function paymentNotification(req, res) {
             res.status(201).send({ message: "Email was sent" });
         }
     });
+              
+            })
+            .catch((error) => {
+              console.log(error);
+            });
             } else  {
 
               const billsUsers = Bills.findAll({
