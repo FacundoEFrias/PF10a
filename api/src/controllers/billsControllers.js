@@ -47,12 +47,12 @@ const postNewBills = async (req, res) => {
           success: "https://pf-10a-bhm9.vercel.app/",
           failure: "https://pf-10a-bhm9.vercel.app/",
           pending: "https://pf-10a-bhm9.vercel.app/",
-        },
+        },/*
         back_urls: {
           success: "http://localhost:3000/",
           failure: "http://localhost:3000/",
           pending: "http://localhost:3000/",
-        },
+        },*/
         auto_return: "approved",
         binary_mode: true,
         notification_url:
