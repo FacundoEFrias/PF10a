@@ -106,7 +106,9 @@ cloudinary.config({
  async function ModifyUser(req, res) {
     try {
        let { email } = req.params;
-       let { first_name, last_name, nationality, date_birth, address, mobile} = req.body;
+       console.log(email)
+       let { first_name, last_name, nationality, date_birth, mobile, address} = req.body;
+       console.log(req.body)
        const user = await Users.findOne({
           where: {
              email: email
@@ -135,17 +137,17 @@ cloudinary.config({
        }
  
        // Actualizar la información del usuario y la URL de la imagen, si corresponde
-       const updatedUser = await user.update(
-        {
+        user.update({
           first_name: first_name,
           last_name: last_name,
           nationality: nationality,
           date_birth: date_birth,
-          address: address,
           mobile: mobile,
           image: imageUrl,
-        },
-      );
+          address: address,
+          
+       });
+
        // configurar transporter para enviar correo electrónico
       /* let transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
@@ -178,7 +180,7 @@ cloudinary.config({
 
  
        // Responder con el usuario actualizado
-       res.status(201).json(updatedUser);
+       res.status(201).json(user);
     } catch (err) {
        res.status(401).json({ message: err });
     };
