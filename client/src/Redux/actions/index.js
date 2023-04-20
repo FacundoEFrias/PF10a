@@ -118,6 +118,7 @@ export function updateUser(
   nationality,
   date_birth,
   mobile,
+  image,
   address
 ) {
   return async function(dispatch) {
@@ -129,6 +130,7 @@ export function updateUser(
         nationality,
         date_birth,
         mobile,
+        image,
         address,
       );
       dispatch({
