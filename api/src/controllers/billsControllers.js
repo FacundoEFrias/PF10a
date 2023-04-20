@@ -111,6 +111,7 @@ async function paymentNotification(req, res) {
             }
           })
             .then((billsUsers) => {
+              console.log(billsUsers)
                 console.log(billsUsers.dataValue)
 
                  // configurar transporter para enviar correo electrónico
