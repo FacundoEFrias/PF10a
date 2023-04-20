@@ -136,17 +136,16 @@ cloudinary.config({
           imageUrl = result.secure_url;
        }
  
+       let updatedFields = {};
+if (first_name) updatedFields.first_name = first_name;
+if (last_name) updatedFields.last_name = last_name;
+if (nationality) updatedFields.nationality = nationality;
+if (date_birth) updatedFields.date_birth = date_birth;
+if (mobile) updatedFields.mobile = mobile;
+if (imageUrl) updatedFields.image = imageUrl;
+if (address) updatedFields.address = address;
        // Actualizar la información del usuario y la URL de la imagen, si corresponde
-        user.update({
-          first_name: first_name,
-          last_name: last_name,
-          nationality: nationality,
-          date_birth: date_birth,
-          mobile: mobile,
-          image: imageUrl,
-          address: address,
-          
-       })
+       user.update(updatedFields);
        
        // configurar transporter para enviar correo electrónico
       /* let transporter = nodemailer.createTransport({
