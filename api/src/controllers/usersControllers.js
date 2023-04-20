@@ -145,7 +145,6 @@ cloudinary.config({
           mobile: mobile,
           image: imageUrl,
         },
-        { returning: true } // Devolver el usuario actualizado
       );
        // configurar transporter para enviar correo electrónico
       /* let transporter = nodemailer.createTransport({
