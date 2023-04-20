@@ -96,16 +96,23 @@ async function paymentNotification(req, res) {
       )
         .then((numRowsAffected) => {
          if (payment.body.status === "approved") {
-          const billsUsers = Bills.findAll({
-              where: {
+          Bills.findAll({
+            where: {
               id_payment: payment.body.id
-              },include: {
-                model: Users,
-                attributes: ["email",'first_name', 'last_name']
-                }})
-            console.log(billsUsers)
-        const userNames = billsUsers.map(billUser => `${billUser.users}`); 
-        console.log(userNames)         
+            },
+            include: {
+              model: Users,
+              attributes: ["email",'first_name', 'last_name']
+            }
+          })
+            .then((billsUsers) => {
+              console.log(billsUsers);
+              const userNames = billsUsers.map(billUser => `${billUser.users}`);
+              console.log(userNames);
+            })
+            .catch((error) => {
+              console.log(error);
+            });
        // configurar transporter para enviar correo electrónico
        let transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
