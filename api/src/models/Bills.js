@@ -59,7 +59,7 @@ module.exports = (sequelize) => {
         type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: true,
       },
-       product_ID:{
+      product_ID:{
         type: DataTypes.ARRAY(DataTypes.INTEGER),
         allowNull: true,
       },

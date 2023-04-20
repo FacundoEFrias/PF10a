@@ -1,19 +1,19 @@
-.marketing{
-    transition: all 0.3 ease;
+.marketing {
+  transition: all 0.3 ease;
 }
 
-.col-2{
-    margin: 0 5rem;
-    text-align: center;
+.col-2 {
+  margin: 0 5rem;
+  text-align: center;
 }
 
-#light .text:hover{
-    color:#287094 !important;
+#light .text:hover {
+  color: #287094 !important;
 }
-#dark .text:hover{
-    color:#6096BA !important;
+#dark .text:hover {
+  color: #6096ba !important;
 }
 
-.fw-normal{
-    text-transform: uppercase;
+.fw-normal {
+  text-transform: uppercase;
 }

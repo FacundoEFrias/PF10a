@@ -9,10 +9,16 @@ Integrantes:
 Bootstrap
 
 # COLOR SNOWPANDACO
-           #488cfb,
-           #29dbbc,
-           #ddf505,
-           #ff9f0e,
-           #e440bb,
-           #655adc,
-           #488cfb
+dark:   
+    #1E1E1E
+    #A6B3BC
+    #6096BA
+    #9DA5AB
+    #D6D6D6
+
+light:
+    #F6F6F6
+    #7F949F 
+    #287094
+    #023246
+    #010E13 

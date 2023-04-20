@@ -7,16 +7,14 @@
   }
 
   .switch {
-    position: fixed;
-    right: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
-    z-index: 9999;
+    margin-left:-70px;
+    margin-right: -20px;
   }
   
-  .switch label {
+  /* .switch label {
     margin: 10px;
     z-index: 1;
   }
@@ -27,7 +25,7 @@
   
   #dark .switch label {
     color: white;
-  }
+  } */
 
   /* titulos generales */
   #light .titulos-color{

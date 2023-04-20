@@ -3,11 +3,13 @@ import './Values.css';
 
 const Values =()=>{
     return (
-        <div className='wrapper'>
+
+        <div id="OurValues" className='wrapper pt-5'>
+
             <h1 className='text-center mt-5 titulos-color'>OUR VALUES</h1>
             <div className='cols'>
                 {/* valor 1 */}
-                <div className="col" ontouchstart="this.classList.toggle('hover');">
+                <div className="col" a="this.classList.toggle('hover');">
 					<div className="containers">
 						<div className="front">
 							<div className="inner">
@@ -23,7 +25,7 @@ const Values =()=>{
 					</div>
 				</div>
             	{/* valor 2 */}
-            	<div className="col" ontouchstart="this.classList.toggle('hover');">
+            	<div className="col" a="this.classList.toggle('hover');">
 					<div className="containers">
 						<div className="front2">
 							<div className="inner">
@@ -39,7 +41,7 @@ const Values =()=>{
 					</div>
 				</div>
             	{/* valor 3 */}
-            	<div className="col" ontouchstart="this.classList.toggle('hover');">
+            	<div className="col" a="this.classList.toggle('hover');">
 					<div className="containers">
 						<div className="front3">
 							<div className="inner">
@@ -55,7 +57,7 @@ const Values =()=>{
 					</div>
 				</div>
               	{/* valor 4 */}
-            	<div className="col" ontouchstart="this.classList.toggle('hover');">
+            	<div className="col" a="this.classList.toggle('hover');">
 					<div className="containers">
 						<div className="front4">
 							<div className="inner">

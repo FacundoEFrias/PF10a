@@ -1,9 +1,8 @@
 import React from 'react';
 import './Pagination.css';
 
-
 const Pagination = ({ productPerPage, filteredProducts, pagination, currentPage }) => {
-  const totalPages = Math.ceil(filteredProducts / productPerPage);
+  const totalPages = isNaN(filteredProducts) ? 0 : Math.ceil(filteredProducts / productPerPage);
   let pageNumbers = [];
 
   if (currentPage === 1) {
@@ -16,11 +15,11 @@ const Pagination = ({ productPerPage, filteredProducts, pagination, currentPage 
 
   return (
     <nav>
-      <ul className='pagination'>
+      <ul className='paginas'>
         {currentPage > 1 && (
-          <li className='number'>
+          <li className='numero' key="prev">
             <button
-              className='prevnext'
+              className='prev-next'
               onClick={() => {
                 window.scroll({
                   top: 0,
@@ -35,7 +34,7 @@ const Pagination = ({ productPerPage, filteredProducts, pagination, currentPage 
         )}
 
         {pageNumbers.map((number, i) => (
-          <li className='number' key={number}>
+          <li className='numero' key={i}>
             <button
               className={number === currentPage ? 'active button3' : 'button3'}
               onClick={() => {
@@ -52,9 +51,9 @@ const Pagination = ({ productPerPage, filteredProducts, pagination, currentPage 
         ))}
 
         {currentPage < totalPages && (
-          <li className='number'>
+          <li className='numero' key="next">
             <button
-              className='prevnext'
+              className='prev-next'
               onClick={() => {
                 window.scroll({
                   top: 0,
@@ -72,5 +71,4 @@ const Pagination = ({ productPerPage, filteredProducts, pagination, currentPage 
   );
 };
 
-
-export default Pagination
+export default Pagination;

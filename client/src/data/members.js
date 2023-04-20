@@ -9,7 +9,7 @@ export const member = [
         image: "https://picsum.photos/130/130?image=1027", 
     },
     {
-        name: "Facu Frias",
+        name: "Facundo Frias",
         title: "Back Developer",
         facebook: "url",
         twitter: "url",
@@ -18,7 +18,7 @@ export const member = [
         image: "https://picsum.photos/130/130?image=839", 
     },
     {
-        name: "Facu Etcheverry",
+        name: "Facundo Etcheverry",
         title: "Back Developer",
         facebook: "url",
         twitter: "url",
@@ -27,12 +27,12 @@ export const member = [
         image: "https://picsum.photos/130/130?image=839", 
     },
     {
-        name: "Facu Gomez",
+        name: "Facundo Gomez",
         title: "Back Developer",
         facebook: "url",
         twitter: "url",
-        linkedin: "url",
-        github: "url",
+        linkedin: "https://www.linkedin.com/in/fg-facugomez/",
+        github: "https://github.com/FacuGomez2022",
         image: "https://picsum.photos/130/130?image=839", 
     },
     {

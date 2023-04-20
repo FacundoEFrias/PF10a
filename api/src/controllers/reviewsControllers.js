@@ -32,7 +32,7 @@ const getReviewsById = async (req, res) => {
 
 const postReviews = async (req, res) => {
   const { comment, rating, firstName, productName, idUser } = req.body;
-  //  console.log(comment , "asdfasd")
+   console.log(req.body , "asdfasd")
   try {
     // const approvedBills = await Bills.findAll(
     //     {

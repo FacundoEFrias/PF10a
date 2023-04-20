@@ -14,8 +14,6 @@ const profileReview = () => {
 
   const [reviewButton, setReviewButton] = useState("Cerrado");
 
-  console.log(allBills, " dameeee la info");
-
   try {
     if (isAuthenticated) {
       var profileBills = allBills?.filter((e) => e.user.email === user.email);
@@ -27,10 +25,8 @@ const profileReview = () => {
         .reduce((acc, val) => acc.concat(val), []);
 
       var userBills = profileBills?.map((e) => e.item);
-      console.log(filterBills, "ITEEEMMS");
     }
     let userEmail = user;
-    console.log(userEmail, "useeeeeeeeeeeeeeeeeerr");
   } catch (error) {
     console.log(error);
   }
@@ -39,15 +35,12 @@ const profileReview = () => {
     dispatch(getAllBills());
   }, [dispatch]);
 
-  console.log(profileBills, "profileBILLS");
-  console.log(allBills, "LASBILLS");
-
   try {
     return (
       <div>
-        <h1>ACA VAN LAS BILL's PERRRRRRRRRRROo</h1>
+        <h1>ACA VAN LAS REVIEW PERRRRRRRRRRROo</h1>
         {filterBills ? (
-          filterBills.map((e, index = 1 ) => (
+          filterBills.map((e, index = 1) => (
             <a class="list-group">
               <div
                 href="#"
@@ -64,7 +57,7 @@ const profileReview = () => {
                   {reviewButton === index ? (
                     <div>
                       <div>
-                        <Reviews item={e.item} />
+                        <Reviews item={e} />
                       </div>
                       <button
                         className="float-end btn btn-danger"
