@@ -106,7 +106,7 @@ async function paymentNotification(req, res) {
             }
           })
             .then((billsUsers) => {
-              
+              console.log(billsUsers)
               console.log(billsUsers.dataValues.user.first_name)
               console.log(billsUsers.dataValues.user.last_name)
 
