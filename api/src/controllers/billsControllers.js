@@ -25,7 +25,7 @@ const postNewBills = async (req, res) => {
         quantity,
         date,
         price,
-        image, 
+        image,
         product_ID,
         category_name,
         userIdUser: idUser

@@ -5,26 +5,18 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { postReviews } from "../../Redux/actions/index";
 
 const Reviews = ({ item }) => {
+  console.log(item)
   const [input, setInput] = useState({
     rating: "",
     firstName: "",
     comment: "",
+    productName:  item ,
+
   });
   const dispatch = useDispatch();
 
   const { user, isAuthenticated } = useAuth0();
-  // console.log(user, 'ajjajsajasjasj')
-  // const handleRatingChange = (e) => {
-  //     setInput({ ...input, rating: e.target.value });
-  // };
 
-  // const handleCommentChange = (e) => {
-  //     setInput({ ...input, comment: e.target.value });
-  // };
-  // const handleFirstNameChange = (e) => {
-  //     setInput({ ...input, firstName: e.target.value });
-  // };
-  
   function handleChange(e) {
     console.log("input", input);
     setInput({
@@ -35,13 +27,13 @@ const Reviews = ({ item }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(postReviews({ input }));
+    dispatch(postReviews( input ));
     alert("Producto creado correctamente");
     setInput({
       rating: "",
       firstName: "",
       comment: "",
-      productName: { item },
+      productName:  item ,
     });
   };
 

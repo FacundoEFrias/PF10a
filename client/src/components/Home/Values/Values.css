@@ -8,11 +8,7 @@
 		-ms-flex-pack: center;
 			justify-content: center;
 }
-  
-  .col{
-	cursor: pointer;
-  }
-  
+ 
   .containers{
 	-webkit-transform-style: preserve-3d;
 			transform-style: preserve-3d;
@@ -112,9 +108,9 @@
   }
 #dark .back{
 	background: #cedce7;
-	background: -webkit-linear-gradient(45deg,  #1E1E1E 0%,#023246 100%);
-	background: -o-linear-gradient(45deg,  #1E1E1E 0%,#023246 100%);
-	background: linear-gradient(45deg,  #1E1E1E 0%,#023246 100%);
+	background: -webkit-linear-gradient(45deg,  #1E1E1E 0%,#62696D 100%);
+	background: -o-linear-gradient(45deg,  #1E1E1E 0%,#62696D 100%);
+	background: linear-gradient(45deg,  #1E1E1E 0%,#62696D 100%);
 }
 
   
@@ -131,13 +127,19 @@
 			  backface-visibility: hidden;
 	  /* border-radius: 10px; */
   }
-  #light .front:after, .front2:after,.front3:after,.front4:after{
+  #light .front:after, 
+  #light .front2:after,
+  #light .front3:after,
+  #light .front4:after{
 	opacity: .6;
 	background-color:#023246;
   }
-  #dark .front:after, .front2:after,.front3:after,.front4:after{
+  #dark .front:after,  
+  #dark .front2:after, 
+  #dark .front3:after, 
+  #dark .front4:after{
 	opacity: .6;
-	background-color:#023246;
+	background-color:#62696D;
   }
   
   .containers:hover .front,

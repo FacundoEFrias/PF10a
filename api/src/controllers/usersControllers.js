@@ -73,7 +73,7 @@ async function postNewUser(req, res) {
     };
 }
 
-
+ 
 
 
 //!-------------- disable    ------ enable  
@@ -106,7 +106,7 @@ cloudinary.config({
  async function ModifyUser(req, res) {
     try {
        let { email } = req.params;
-       let { first_name, last_name, nationality, date_birth, mobile } = req.body;
+       let { first_name, last_name, nationality, date_birth, address, mobile} = req.body;
        const user = await Users.findOne({
           where: {
              email: email
@@ -140,12 +140,14 @@ cloudinary.config({
           last_name: last_name,
           nationality: nationality,
           date_birth: date_birth,
+          address: address,
           mobile: mobile,
           image: imageUrl,
+          
        });
 
        // configurar transporter para enviar correo electrónico
-       /*let transporter = nodemailer.createTransport({
+      /* let transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
         port: 465,
         secure: true,

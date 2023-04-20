@@ -5,8 +5,6 @@ import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
 import Checkout from "../Checkout/Checkout";
 
-
-
 const ShoppingCart = ({
   allProducts,
   setAllProducts,
@@ -17,39 +15,35 @@ const ShoppingCart = ({
 }) => {
   const navigate = useNavigate();
 
+  const clearCart = () => {
+    window.localStorage.setItem("productscart", JSON.stringify([]));
+    window.localStorage.setItem("totalprices", JSON.stringify(0));
+    window.localStorage.setItem("countproducts", JSON.stringify(0));
+    setAllProducts([]);
+    setCountProducts(0);
+    setPriceTotal(0);
+  };
 
-const clearCart = () => {
-  window.localStorage.setItem("productscart", JSON.stringify([]));
-  window.localStorage.setItem("totalprices", JSON.stringify(0));
-  window.localStorage.setItem("countproducts", JSON.stringify(0));
-  setAllProducts([]);
-  setCountProducts(0);
-  setPriceTotal(0);
-};
-
-
-
- useEffect(() => {
-  
-  const storedProduct = window.localStorage.getItem("productscart");
-  const storedPriceTotal = window.localStorage.getItem("totalprices");
-  const storedCountProducts = window.localStorage.getItem("countproducts");
-  if (storedProduct) {
-    setAllProducts(JSON.parse(storedProduct));
-  }
-  if (storedPriceTotal) {
-    setPriceTotal(Number(storedPriceTotal));
-  }
-  if (storedCountProducts) {
-    setCountProducts(Number(storedCountProducts));
-  }
-}, []);
+  useEffect(() => {
+    const storedProduct = window.localStorage.getItem("productscart");
+    const storedPriceTotal = window.localStorage.getItem("totalprices");
+    const storedCountProducts = window.localStorage.getItem("countproducts");
+    if (storedProduct) {
+      setAllProducts(JSON.parse(storedProduct));
+    }
+    if (storedPriceTotal) {
+      setPriceTotal(Number(storedPriceTotal));
+    }
+    if (storedCountProducts) {
+      setCountProducts(Number(storedCountProducts));
+    }
+  }, []);
 
   // window.localStorage.setItem("productscart", JSON.stringify(allProducts));
   // window.localStorage.setItem("totalprices", JSON.stringify(priceTotal));
   // window.localStorage.setItem("countproducts", JSON.stringify(countProducts));
 
- function decrementProduct(product) {
+  function decrementProduct(product) {
     const productToUpdate = allProducts?.find(
       (el) => el.productsID === product.productsID && el.size === product.size
     );
@@ -64,16 +58,15 @@ const clearCart = () => {
           ? {
               ...el,
 
-              sizes: productToUpdate.sizes?.map(
-                (size) =>
-                  size.size === product.size
-                    ? {
-                        ...size,
+              sizes: productToUpdate.sizes?.map((size) =>
+                size.size === product.size
+                  ? {
+                      ...size,
 
-                        stock: Number(size.stock + 1),
-                        quantity: Number(size.quantity - 1),
-                      }
-                    : size,
+                      stock: Number(size.stock + 1),
+                      quantity: Number(size.quantity - 1),
+                    }
+                  : size
               ),
 
               // price: Number(productToUpdate.price) * productToUpdate?.sizes.map(el => el.size === product.size ? Number(el.quantity): null )
@@ -83,9 +76,9 @@ const clearCart = () => {
 
       setAllProducts(updatedProduct);
       setCountProducts(countProducts - 1);
-      setPriceTotal( priceTotal - Number(productToUpdate.price))
+      setPriceTotal(priceTotal - Number(productToUpdate.price));
       //setPriceTotal(priceTotal -  Number(productToUpdate.price) * productToUpdate?.sizes.map(el => el.size === product.size ? Number(el.quantity): 209 ) );
-    window.localStorage.setItem(
+      window.localStorage.setItem(
         "productscart",
         JSON.stringify(updatedProduct)
       );
@@ -108,16 +101,15 @@ const clearCart = () => {
           ? {
               ...el,
 
-              boardsizes: productToUpdate.boardsizes?.map(
-                (size) =>
-                  size.size === product.size
-                    ? {
-                        ...size,
+              boardsizes: productToUpdate.boardsizes?.map((size) =>
+                size.size === product.size
+                  ? {
+                      ...size,
 
-                        stock: Number(size.stock + 1),
-                        quantity: Number(size.quantity - 1),
-                      }
-                    : size,
+                      stock: Number(size.stock + 1),
+                      quantity: Number(size.quantity - 1),
+                    }
+                  : size
               ),
 
               // price: Number(productToUpdate.price) * productToUpdate?.sizes.map(el => el.size === product.size ? Number(el.quantity): null )
@@ -127,15 +119,15 @@ const clearCart = () => {
 
       setAllProducts(updatedProduct);
       setCountProducts(countProducts - 1);
-      setPriceTotal( priceTotal - Number(productToUpdate.price))
+      setPriceTotal(priceTotal - Number(productToUpdate.price));
       //setPriceTotal(priceTotal -  Number(productToUpdate.price) * productToUpdate?.sizes.map(el => el.size === product.size ? Number(el.quantity): 209 ) );
-     window.localStorage.setItem(
+      window.localStorage.setItem(
         "productscart",
         JSON.stringify(updatedProduct)
       );
       window.localStorage.setItem(
         "totalprices",
-        JSON.stringify(priceTotal -  Number(productToUpdate.price))
+        JSON.stringify(priceTotal - Number(productToUpdate.price))
       );
       window.localStorage.setItem(
         "countproducts",
@@ -152,16 +144,15 @@ const clearCart = () => {
           ? {
               ...el,
 
-              numbersizes: productToUpdate.numbersizes?.map(
-                (size) =>
-                  size.size === product.size
-                    ? {
-                        ...size,
+              numbersizes: productToUpdate.numbersizes?.map((size) =>
+                size.size === product.size
+                  ? {
+                      ...size,
 
-                        stock: Number(size.stock + 1),
-                        quantity: Number(size.quantity - 1),
-                      }
-                    : size,
+                      stock: Number(size.stock + 1),
+                      quantity: Number(size.quantity - 1),
+                    }
+                  : size
               ),
 
               // price: Number(productToUpdate.price) * productToUpdate?.sizes.map(el => el.size === product.size ? Number(el.quantity): null )
@@ -169,10 +160,9 @@ const clearCart = () => {
           : { ...el }
       );
 
-
       setAllProducts(updatedProduct);
       setCountProducts(countProducts - 1);
-      setPriceTotal( priceTotal - Number(productToUpdate.price))
+      setPriceTotal(priceTotal - Number(productToUpdate.price));
       //setPriceTotal(priceTotal -  Number(productToUpdate.price) * productToUpdate?.sizes.map(el => el.size === product.size ? Number(el.quantity): 209 ) );
       window.localStorage.setItem(
         "productscart",
@@ -180,15 +170,13 @@ const clearCart = () => {
       );
       window.localStorage.setItem(
         "totalprices",
-        JSON.stringify(priceTotal -  Number(productToUpdate.price))
+        JSON.stringify(priceTotal - Number(productToUpdate.price))
       );
       window.localStorage.setItem(
         "countproducts",
         JSON.stringify(countProducts - 1)
       );
     }
-
-
   }
 
   // price: Number(productToUpdate.price) - Number(product.price)
@@ -241,7 +229,7 @@ const clearCart = () => {
       setAllProducts(updateProduct);
       setCountProducts(countProducts + 1);
       setPriceTotal(priceTotal + Number(productNext.price));
-       window.localStorage.setItem(
+      window.localStorage.setItem(
         "productscart",
         JSON.stringify(updateProduct)
       );
@@ -251,10 +239,10 @@ const clearCart = () => {
       );
       window.localStorage.setItem(
         "countproducts",
-        JSON.stringify(countProducts +1)
+        JSON.stringify(countProducts + 1)
       );
-     } 
-     // else {
+    }
+    // else {
     //   const newProduct = {
     //     ...product,
     //     price: Number(product.price) + Number(product.price),
@@ -303,10 +291,7 @@ const clearCart = () => {
     //     JSON.stringify(countProducts)
     //   );
     // }
-    
   }
-
-
 
   const renderProduct = () => {
     if (allProducts.length > 0) {
@@ -353,11 +338,12 @@ const clearCart = () => {
               })}
           </BasketQty>
           <BasketPrice>
-            <button  onClick={() => decrementProduct(el)}>-</button>${el.price}
-            <button  onClick={() => incrementProduct(el)}>+</button>
+            <button onClick={() => decrementProduct(el)}>-</button>${el.price}
+            <button onClick={() => incrementProduct(el)}>+</button>
           </BasketPrice>
           <BasketQty>
-            {(el.price *
+            {(
+              el.price *
               (el.sizes?.reduce((acc, size) => {
                 if (size.size === el.size) {
                   const sizeQuantity =
@@ -381,7 +367,8 @@ const clearCart = () => {
                     0;
                   return acc + sizeQuantity;
                 }, 0) ||
-                0)).toFixed(2)}
+                0)
+            ).toFixed(2)}
           </BasketQty>
         </React.Fragment>
       ));
@@ -401,10 +388,11 @@ const clearCart = () => {
     <div>
       <All>
         <BasketContainer>
-          <BasketTitle>SHOPPING CART</BasketTitle>
+        <h1 className='text-center mt-5 titulos-color'>SHOPPING CART</h1>
           <Link to={`/checkout?products=${JSON.stringify(allProducts)}`}>
-          <BasketButton >Go to checkout</BasketButton>
-      </Link>
+            {priceTotal === 0 ? null :<BasketButton>Go to checkout</BasketButton>}
+            
+          </Link>
           <BasketTable>
             <BasketHeader>
               <h4>Item</h4>
@@ -417,7 +405,9 @@ const clearCart = () => {
             <BasketHeader>{renderProduct()}</BasketHeader>
             <BasketHeaderLine />
           </BasketTable>
-          <button className="buttonvolver" onClick={() => clearCart() }>Clear</button>
+          <button className="buttonvolver" onClick={() => clearCart()}>
+            Clear
+          </button>
           <BasketTotal>Total: {priceTotal.toFixed(2)}</BasketTotal>
         </BasketContainer>
       </All>
@@ -477,7 +467,7 @@ const BasketTotal = styled.h2`
   justify-self: end;
 `;
 const BasketButton = styled.button`
- margin: 50px;
+  margin: 50px;
   border-radius: 8px;
   height: 40px;
   padding: 10px 20px;
@@ -491,9 +481,8 @@ const BasketButton = styled.button`
   transition: all 0.3s ease-in-out;
   &:hover {
     cursor: pointer;
-  background-color: #fff;
-  color: #3d3d3d;
-  border: 2px solid #3d3d3d;
+    background-color: #fff;
+    color: #3d3d3d;
+    border: 2px solid #3d3d3d;
   }
-`
-
+`;

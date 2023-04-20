@@ -91,6 +91,7 @@ function rootReducer(state = initialState, action) {
         }
       case GET_ALL_USERS:
         return{
+          ...state,
           users: action.payload,
           user: action.payload,
         }

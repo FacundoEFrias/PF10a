@@ -1,4 +1,4 @@
-.filtro-button{
+ .filtro-button{
     border-radius: 8px;
     height: 40px;
     padding: 0.4em;
@@ -37,15 +37,26 @@
     border: 1px solid #ccc;
   }
 
-
   nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    background-color: black;
-  } 
+    
+  }
 
+  .burger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  } 
+  #light .burger{
+    background-color: #F6F6F6;
+  }
+  #dark .burger{
+    background-color: #1E1E1E;
+  }
   .hamburger {
     display: flex;
     flex-direction: column;
@@ -57,13 +68,17 @@
     border: none;
     cursor: pointer;
   }
+
+  .hamburger:hover .hamburger-line {
+    background-color: #21ad1c;
+  }
   
   .hamburger-line {
     display: block;
     width: 30px;
     height: 2px;
     margin: 5px;
-    background-color: black;
+    background-color: #287094;
     transition: all 0.3s ease-in-out;
   }
   
@@ -90,6 +105,15 @@
     }
     .paginat{
       margin-top: 10px;
+    }
+
+   .paginas{
+    margin-left: 0;
+   } 
+    nav {     
+      padding-top: 35px;
+      padding-bottom: 35px;
+      padding-left: 5px;
     }
   }
 

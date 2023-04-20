@@ -1,27 +1,24 @@
-.pagination{
+.paginas{
     display: flex;
-    align-items: center;
     justify-content: center;
     list-style: none;
     margin: 0;
     padding: 0;
-    color:white;    
+    /* color:white;     */
     margin-left: 35%;
   }
-  .number {
+  .numero {
     margin-left: 10px;
     align-items: center;
     display: inline;
     padding: 8px;
     }
-    .button3 {
+    #light .button3 {
       background-color:transparent;
       text-decoration: none;
       margin: 10px;
-    
       border: none;
       border-radius: 5px;
-      border: 1px solid #287094;
       width: 30px;
       height: 30px;
       margin-top: 10px;
@@ -30,26 +27,54 @@
       font-weight: bold;
       transition: .5s;
     }
+    #dark .button3{
+      background-color:transparent;
+      text-decoration: none;
+      margin: 10px;
+      border: none;
+      border-radius: 5px;
+   
+      width: 30px;
+      height: 30px;
+      margin-top: 10px;
+      color: #62696D;
+      text-transform: uppercase;
+      font-weight: bold;
+      transition: .5s;
+    }
     
-    .button3:focus
+    #light .button3:focus
     {outline:none }
-    
-    .button3:hover {
+    #dark .button3:focus
+    {outline:none }
+
+   #light .button3:hover {
       cursor:pointer;
       color:white;
       background-color: #287094 ;
       /* color: rgb(221, 4, 221)*/
     } 
+    #dark .button3:hover {
+      cursor:pointer;
+      color:white;
+      background-color: #62696D ;
+      /* color: rgb(221, 4, 221)*/
+    } 
     
-    .button3.active {
+    #light .button3.active {
       background-color: #287094;
       color: #ffff;
-     
+    }
+    #dark .button3.active{
+      background-color: #62696D;
+      color: #ffff;
     }
 
-    .prevnext {
+    #light .prev-next {
+      background-color: transparent;
+      text-decoration: none;
      margin: 10px;
-    
+   
       border: none;
       border-radius: 5px;     
       width: 100%;
@@ -60,17 +85,38 @@
       font-weight: bold;
       transition: .5s;
     }  
+    #dark .prev-next {
+      background-color: transparent;
+      text-decoration: none;
+     margin: 10px;
+
+      border: none;
+      border-radius: 5px;     
+      width: 100%;
+      height: 30px;
+      margin-top: 10px;
+      color: #62696D;
+      text-transform: uppercase;
+      font-weight: bold;
+      transition: .5s;
+    }  
 
     
-    .prevnext:hover {
+    #light .prev-next:hover {
       cursor:pointer;
       color:white;
       background-color: #287094 ;
       /* color: rgb(221, 4, 221)*/
-    }     
+    }    
+    #dark .prev-next:hover {
+      cursor:pointer;
+      color:white;
+      background-color: #62696D ;
+      /* color: rgb(221, 4, 221)*/
+    }  
 
     @media (max-width: 650px) {
-      .pagination {
+      .paginas {
         position: absolute;
         left: 0px;
         display: flex;

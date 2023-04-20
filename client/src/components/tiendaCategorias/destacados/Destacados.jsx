@@ -29,13 +29,12 @@ const Destacados = ({ datos }) => {
   let newData = datos && datos.filter((e) => e.featuredProduct === true);
 
   const dispatch = useDispatch();
-  
+
   //Cambia la primera letra en Mayuscula
   try {
     newData.map((e) => {
       e.category = e.category[0].toUpperCase() + e.category.substring(1);
     });
-    
   } catch (error) {
     console.log(error);
   }

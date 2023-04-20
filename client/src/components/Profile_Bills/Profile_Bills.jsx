@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import Reviews from "../Reviews/Reviews";
 
@@ -14,7 +14,6 @@ const ManageBills = () => {
 
   // const [reviewButton, setReviewButton] = useState(0);
   const reviewButton = useSelector((e) => e.reviewButton);
-  console.log(allBills, " dameeee la info");
 
   try {
     if (isAuthenticated) {
@@ -24,10 +23,8 @@ const ManageBills = () => {
       );
 
       var userBills = profileBills?.map((e) => e.item);
-      console.log(userBills, "ITEEEMMS");
     }
     let userEmail = user.email;
-    console.log(userEmail, "useeeeeeeeeeeeeeeeeerr");
   } catch (error) {
     console.log(error);
   }
@@ -38,6 +35,10 @@ const ManageBills = () => {
 
   console.log(profileBills, "profileBILLS");
   console.log(allBills, "LASBILLS");
+  
+  const scrollTop = () => {
+    window.scroll(0, 0)
+  }
 
   try {
     return (
@@ -64,44 +65,29 @@ const ManageBills = () => {
                 <div>
                   {e?.payment_status ? (
                     <div>
-                      <button
-                        className="float-end btn btn-light btn-sm"
-                        onClick={() => dispatch(setReviewButton(e.id))}
-                      >
-                        Generar Review
-                      </button>
-                      <button
-                        className="float-end btn btn-light btn-sm"
-                        onClick={() => dispatch(setReviewButton(e.id))}
-                      >
-                        Editar Review
-                      </button>
+                      <Link to={'/ProfileReview'} onClick={() => scrollTop()}>
+        <button>Create Reviews</button>
+      </Link>
                     </div>
                   ) : null}
                   <p id="" class="mb-1">
-                    {e.item
-                      ? e.item.map((element) => {
-                          return (
-                            <div>
-                              {element}
-                              {reviewButton === e.id ? (
-                                <div>
-                                  <div>
-                                    <Reviews item={e.item} />
-                                  </div>
-                                  <button
-                                    className="float-end btn btn-danger"
-                                    onClick={() => dispatch(setReviewButton(0))}
-                                  >
-                                    X
-                                  </button>
-                                  <hr />
-                                </div>
-                              ) : null}
-                            </div>
-                          );
-                        })
-                      : null}
+                  {e.item && e.image
+    ? e.item.map((element, index) => {
+        return (
+          <div>
+            <Link
+              onClick={() => scrollTop()}
+              to={`/Products/${e.category_name[index]}/${e.product_ID[index]}/Detail`}
+              style={{ color: "red" }}
+            >
+             {element}
+             <img src={e.image[index]} style={{ width: "5%" }} />
+            </Link>
+          </div>
+        );
+      })
+    : null}
+
                   </p>
                 </div>
                 <div>
@@ -113,6 +99,12 @@ const ManageBills = () => {
                   )}
                   {e?.payment_status && e?.Shipped === false ? (
                     <button onClick={(e) => handleSubmit(e)}>Shipped</button>
+                  ) : null}
+                </div>
+                <div>
+                  {/* //!ESTO HAY QUE EDIITARLO PARA QUE DESPUES SE TENGA QUE CAMBIAR A CANCELADO */}
+                  {e?.price ? (
+                    <small> Total Price $ {e?.price} </small>
                   ) : null}
                 </div>
               </a>

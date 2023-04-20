@@ -1,4 +1,5 @@
-.card {
+
+ #light .marcas {
     margin: 30px auto;
     width: 300px;
     height: 150px;
@@ -8,16 +9,28 @@
     transition: 0.4s;
     display: flex;
     align-items: center;
-    justify-content: center;
-   
+    justify-content: center; 
 }
-#light .card{
+#dark .marcas {
+    margin: 30px auto;
+    width: 300px;
+    height: 150px;
+    border-radius: 40px;
+    box-shadow: 5px 5px 30px 7px rgba(107, 107, 107, 0.25), -5px -5px 30px 7px rgba(107, 107, 107, 0.22);
+    cursor: pointer;
+    transition: 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+#light .marcas{
     background-color: #F6F6F6;
 }
-#dark .card{
-    background-color:#A6B3BC ;
+#dark .marcas{
+    background-color:#9DA5AB ;
 }
-.card .card_image {
+.marcas .marcas_image {
     width: 100px;
     height: 100px;
     object-fit: cover;
@@ -26,8 +39,13 @@
     margin: 0 auto;
 }
 
-.card:hover {
+.marcas:hover {
     transform: scale(0.9, 0.9);
     box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
       -5px -5px 30px 15px rgba(0,0,0,0.22);
+}
+.marcas:hover {
+    transform: scale(0.9, 0.9);
+    box-shadow: 5px 5px 30px 15px rgba(107, 107, 107, 0.25), 
+      -5px -5px 30px 15px rgba(107, 107, 107, 0.22);
 }

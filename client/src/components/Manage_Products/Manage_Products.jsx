@@ -23,21 +23,22 @@ const FormCreatePoke = () => {
   }, [dispatch]);
 
   const handleBannedProduct = (e) => {
-    console.log(e, "salio el Ban");
     dispatch(setBannedProduct(e));
     navigate(0);
   };
 
   async function decrementStock(product, sizeSelected) {
-    const productToReStock = allProducts.find((p) => p.productsID === product.productsID);
+    const productToReStock = allProducts.find(
+      (p) => p.productsID === product.productsID
+    );
     const sizeToUpdate =
       productToReStock.sizes !== null
         ? productToReStock.sizes.find((p) => p === sizeSelected)
         : productToReStock.numbersizes !== null
-          ? productToReStock.numbersizes.find((p) => p === sizeSelected)
-          : productToReStock.boardsizes !== null
-            ? productToReStock.boardsizes.find((p) => p === sizeSelected)
-            : null;
+        ? productToReStock.numbersizes.find((p) => p === sizeSelected)
+        : productToReStock.boardsizes !== null
+        ? productToReStock.boardsizes.find((p) => p === sizeSelected)
+        : null;
     const actualStock = sizeToUpdate.stock;
     if (sizeToUpdate) {
       sizeToUpdate.stock = actualStock - 1;
@@ -46,15 +47,17 @@ const FormCreatePoke = () => {
     }
   }
   async function incrementStock(product, sizeSelected) {
-    const productToReStock = allProducts.find((p) => p.productsID === product.productsID);
+    const productToReStock = allProducts.find(
+      (p) => p.productsID === product.productsID
+    );
     const sizeToUpdate =
       productToReStock?.sizes !== null
         ? productToReStock.sizes.find((p) => p === sizeSelected)
         : productToReStock?.numbersizes !== null
-          ? productToReStock.numbersizes.find((p) => p === sizeSelected)
-          : productToReStock?.boardsizes !== null
-            ? productToReStock.boardsizes.find((p) => p === sizeSelected)
-            : null;
+        ? productToReStock.numbersizes.find((p) => p === sizeSelected)
+        : productToReStock?.boardsizes !== null
+        ? productToReStock.boardsizes.find((p) => p === sizeSelected)
+        : null;
     const actualStock = sizeToUpdate.stock;
     if (sizeToUpdate) {
       sizeToUpdate.stock = actualStock + 1;
@@ -64,7 +67,6 @@ const FormCreatePoke = () => {
   }
 
   const handleFeaturedProduct = (e) => {
-    console.log(e, "la merda");
     dispatch(setFeaturedProduct(e));
     navigate(0);
   };
@@ -75,7 +77,6 @@ const FormCreatePoke = () => {
   try {
     return (
       <div className="all_">
-
         <div className="_filter">
           <div>
             <Link to={"/Create"} onClick={() => scrollTop()}>
@@ -98,7 +99,6 @@ const FormCreatePoke = () => {
                         alt="OFF-white Red Edition"
                         draggable="false"
                       />
-
                     </div>
                     <div className="-infoproduct">
                       <h2>{e.name}</h2>
@@ -107,35 +107,35 @@ const FormCreatePoke = () => {
 
                       <div className="price_">${e.price}</div>
                       <div></div>
-
                     </div>
-                    <div><h2>Stock:</h2></div>
+                    <div>
+                      <h2>Stock:</h2>
+                    </div>
                     <div className="btn_">
-
                       <div className="stock_">
                         <h2>
                           {e.sizes !== null
                             ? e.sizes.map((s) => {
-                              return (
-                                <div className="stock_sizes">
-                                  <h1>{s.size}:</h1>
+                                return (
+                                  <div className="stock_sizes">
+                                    <h1>{s.size}:</h1>
 
-                                  <button
-                                    onClick={() => decrementStock(e, s)}
-                                  >
-                                    -
-                                  </button>
-                                  <h2>{s.stock}</h2>
-                                  <button
-                                    onClick={() => incrementStock(e, s)}
-                                  >
-                                    +
-                                  </button>
-                                </div>
-                              );
-                            })
+                                    <button
+                                      onClick={() => decrementStock(e, s)}
+                                    >
+                                      -
+                                    </button>
+                                    <h2>{s.stock}</h2>
+                                    <button
+                                      onClick={() => incrementStock(e, s)}
+                                    >
+                                      +
+                                    </button>
+                                  </div>
+                                );
+                              })
                             : e.boardsizes !== null
-                              ? e.boardsizes.map((b) => {
+                            ? e.boardsizes.map((b) => {
                                 return (
                                   <div className="stock_sizes">
                                     <h1>{b.size}:</h1>
@@ -153,34 +153,36 @@ const FormCreatePoke = () => {
                                   </div>
                                 );
                               })
-                              : e.numbersizes !== null
-                                ? e.numbersizes.map((n) => {
-                                  return (
-                                    <div className="stock_numbersizes">
-                                      <h1>{n.size}:</h1>
-                                      
-                                        <button
-                                          onClick={() => decrementStock(e, n)}
-                                        >
-                                          -
-                                        </button>
-                                        <h2>{n.stock}</h2>
-                                        <button
-                                          onClick={() => incrementStock(e, n)}
-                                        >
-                                          +
-                                        </button>
-                                      </div>
-                                   
-                                  );
-                                })
-                                : null}
+                            : e.numbersizes !== null
+                            ? e.numbersizes.map((n) => {
+                                return (
+                                  <div className="stock_numbersizes">
+                                    <h1>{n.size}:</h1>
+
+                                    <button
+                                      onClick={() => decrementStock(e, n)}
+                                    >
+                                      -
+                                    </button>
+                                    <h2>{n.stock}</h2>
+                                    <button
+                                      onClick={() => incrementStock(e, n)}
+                                    >
+                                      +
+                                    </button>
+                                  </div>
+                                );
+                              })
+                            : null}
                         </h2>
                       </div>
                     </div>
                     <div className="botonera">
                       <button value={e.productsID} className="-btnbuy">
-                        <Link className="text-white" to={`/FormAdminProduct/${e.productsID}`}>
+                        <Link
+                          className="text-white"
+                          to={`/FormAdminProduct/${e.productsID}`}
+                        >
                           Edit Now
                         </Link>
                       </button>
@@ -230,8 +232,8 @@ const FormCreatePoke = () => {
           ) : (
             <div>Loading ... </div>
           )}
-        </div >
-      </div >
+        </div>
+      </div>
     );
   } catch (err) {
     console.log(err);

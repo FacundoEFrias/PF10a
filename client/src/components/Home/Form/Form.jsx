@@ -5,11 +5,14 @@ function Form() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [contact, setContact] = useState('')
-  const [tema, setTema] = useState('')
+  const [topic, setTopic] = useState('')
+  const [message, setMessage] = useState('')
+
   const [nameError, setNameError] = useState('')
   const [emailError, setEmailError] = useState('')
   const [contactError, setContactError] = useState('')
-  const [temaError, setTemaError] = useState('')
+  const [topicError, setTopicError] = useState('')
+  
 
   const handleNameChange = (e) => {
     setName(e.target.value)
@@ -23,8 +26,11 @@ function Form() {
     setContact(e.target.value)
   }
 
-  const handleTemaChange = (e) => {
-    setTema(e.target.value)
+  const handleTopicChange = (e) => {
+    setTopic(e.target.value)
+  }
+  const handleMessage = (e) => {
+    setMessage(e.target.value)
   }
 
 
@@ -32,7 +38,7 @@ function Form() {
     let nameError = ''
     let emailError = ''
     let contactError = ''
-    let temaError = ''
+    let topicError = ''
 
     if (!name) {
       nameError = 'Name is required'
@@ -46,16 +52,16 @@ function Form() {
       contactError = 'Contact number is required'
     }
 
-    if (!tema) {
-      temaError = 'Topic is required'
+    if (!topic) {
+      topicError = 'Topic is required'
     }
 
 
-    if (nameError || emailError || contactError || temaError ) {
+    if (nameError || emailError || contactError || topicError ) {
       setNameError(nameError)
       setEmailError(emailError)
       setContactError(contactError)
-      setTemaError(temaError)
+      setTopicError(topicError)
       return false
     }
 
@@ -65,25 +71,23 @@ function Form() {
   const handleSubmit = (e) => {
     e.preventDefault()
     const isValid = validate()
-
     if (isValid) {
       setName('')
       setEmail('')
       setContact('')
-      setTema('')
+      setTopic('')
       setMessage('')
       setNameError('')
       setEmailError('')
       setContactError('')
-      setTemaError('')
-  
+      setTopicError('')
     }
   }
 
   return (
     <div className="contacto" id='contacto'>
       <h1 className='text-center mt-5 titulos-color'>CONTACT US</h1>
-      <form onSubmit={handleSubmit} action="https://formsubmit.co/e413674aa8b810409548ae9d7c693fa6" method="POST">
+      <form onSubmit={handleSubmit} action="https://formsubmit.co/snowpanda@gmail.com" method="POST">
       <div className="contenedor-form">
         <div className="input-container">
           <div className="fila-name">
@@ -101,14 +105,14 @@ function Form() {
             <div className="error">{contactError}</div>
           </div>
           <div className="fila-topic">
-          <input className="input-mitad" placeholder="TOPIC" name='tema' value={tema} onChange={handleTemaChange}/>
-        <div className="error">{temaError}</div>
+          <input className="input-mitad" placeholder="TOPIC" name='tema' value={topic} onChange={handleTopicChange}/>
+        <div className="error">{topicError}</div>
         </div>
         </div>
         <div className="fila-message">
-          <input className="input-full" placeholder="MESSAGE" name='message'/>
+          <input className="input-full" placeholder="MESSAGE" name='message' value={message} onChange={handleMessage}/>
         </div>
-        <button className="btn-form">SEND</button>      
+        <button className="btn-form" tpye='submit'>SEND</button>      
       </div>
       <input type='hidden' name='_next' value='https://pf-10a-bhm9.vercel.app/'/>
       </form>

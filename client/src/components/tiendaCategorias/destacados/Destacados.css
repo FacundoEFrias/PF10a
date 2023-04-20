@@ -1,17 +1,19 @@
-#light .destacado{
-    z-index: 10;
-    background-color: #7F949F;
+#light .destacado {
+  z-index: 10;
+  background-color: #7f949f;
 }
+
 #dark .destacado{
     z-index: 10;
-    background-color: #023246;
+    background-color: #9DA5AB ;
+    
+
 }
 
-.destacados{
-    text-align: center;
-    font-size: 25px;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #fff;
+.destacados {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
 }
-

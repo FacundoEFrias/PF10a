@@ -48,7 +48,7 @@ function Create() {
   const sizeNumber = numberSizes?.filter((size) => size.numbersizes);
   const sizeLeter = numberSizes?.filter((size) => size.sizes);
   const [errors, setErrors] = useState({});
-  const [newBrand, setNewBrand] = useState(false)
+  const [newBrand, setNewBrand] = useState(false);
 
   //! aca traigo los numeros de los talles
   const sizes = sizeNumber?.reduce((acc, curr) => {
@@ -89,9 +89,8 @@ function Create() {
   const handleFeaturedProduct = (e) => {
     setInput({
       ...input,
-      [e.target.name]: e.target.checked      
+      [e.target.name]: e.target.checked,
     });
-    console.log(e.target.value);
   };
 
   function handleSubmit(e) {
@@ -225,7 +224,6 @@ function Create() {
     }
   }
 
-  console.log(input.category, "CATEGORY");
   //!!!!!
 
   function handleChange(e) {
@@ -240,8 +238,6 @@ function Create() {
       })
     );
   }
-
-  console.log("acac", input);
 
   return (
     <div className="signup-container">
@@ -333,17 +329,61 @@ function Create() {
             </div>
 
             <div className="pets-spayed-neutered">
-              <label htmlFor="pet-spayed">Brand     {newBrand === false ? <button onClick={() => { setNewBrand(!newBrand); setInput({ ...input, brand: "" }) }}> New </button> : <button onClick={() => { setNewBrand(!newBrand); setInput({ ...input, brand: "" }) }}> Cancel </button>}</label>
+              <label htmlFor="pet-spayed">
+                Brand{" "}
+                {newBrand === false ? (
+                  <button
+                    onClick={() => {
+                      setNewBrand(!newBrand);
+                      setInput({ ...input, brand: "" });
+                    }}
+                  >
+                    {" "}
+                    New{" "}
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => {
+                      setNewBrand(!newBrand);
+                      setInput({ ...input, brand: "" });
+                    }}
+                  >
+                    {" "}
+                    Cancel{" "}
+                  </button>
+                )}
+              </label>
               <div className="radio-container">
-                {newBrand === false ? <select id="pets-breed" placeholder="Insert brand" name="brand" value={input.brand} type="text" onChange={(e) => handleChange(e)}>
-                  <option></option>
-                  {numberSizes && Array.from(new Set(numberSizes.map(h => h.brand)))
-                    ?.filter((brand, index, array) => array.indexOf(brand) === index)
-                    .map((brand, index) => <option key={index}>{brand.brandName}</option>)}
-                </select>
-                  :
-                  <input id="pets-breed" placeholder="Insert New brand" name="brand" value={input.brand} type="text" onChange={(e) => handleChange(e)}></input>}
-
+                {newBrand === false ? (
+                  <select
+                    id="pets-breed"
+                    placeholder="Insert brand"
+                    name="brand"
+                    value={input.brand}
+                    type="text"
+                    onChange={(e) => handleChange(e)}
+                  >
+                    <option></option>
+                    {numberSizes &&
+                      Array.from(new Set(numberSizes.map((h) => h.brand)))
+                        ?.filter(
+                          (brand, index, array) =>
+                            array.indexOf(brand) === index
+                        )
+                        .map((brand, index) => (
+                          <option key={index}>{brand.brandName}</option>
+                        ))}
+                  </select>
+                ) : (
+                  <input
+                    id="pets-breed"
+                    placeholder="Insert New brand"
+                    name="brand"
+                    value={input.brand}
+                    type="text"
+                    onChange={(e) => handleChange(e)}
+                  ></input>
+                )}
               </div>
               {errors.brand ? <p className="danger">{errors.brand}</p> : null}
             </div>
@@ -401,15 +441,24 @@ function Create() {
             <div className="pets-spayed-neutered">
               <label htmlFor="pet-spayed">Activity</label>
               <div className="radio-container">
-                <select id="pets-birthday" placeholder="Activity" name="activity" value={input.activity} type="text" onChange={(e) => handleChange(e)}>
+                <select
+                  id="pets-birthday"
+                  placeholder="Activity"
+                  name="activity"
+                  value={input.activity}
+                  type="text"
+                  onChange={(e) => handleChange(e)}
+                >
                   <option></option>
-                  {numberSizes && Array.from(new Set(numberSizes.map(h => h.activity))).map(activity => (
-                    <option>{activity}</option>
-                  ))}
+                  {numberSizes &&
+                    Array.from(
+                      new Set(numberSizes.map((h) => h.activity))
+                    ).map((activity) => <option>{activity}</option>)}
                 </select>
               </div>
-              {errors.activity ? <p className="danger">{errors.activity}</p> : null}
-
+              {errors.activity ? (
+                <p className="danger">{errors.activity}</p>
+              ) : null}
             </div>
           </div>
           <div className="pets-spayed-neutered">
@@ -430,15 +479,15 @@ function Create() {
           </div>
 
           <label>
-          Featured:
-        <input
-          type="checkbox"
-          name="featuredProduct"
-          value={input.featuredProduct}
-          checked={input.featuredProduct}
-          onChange={handleFeaturedProduct}
-        />
-      </label>
+            Featured:
+            <input
+              type="checkbox"
+              name="featuredProduct"
+              value={input.featuredProduct}
+              checked={input.featuredProduct}
+              onChange={handleFeaturedProduct}
+            />
+          </label>
           {/* //!!!!!!! */}
           <hr />
 
@@ -447,28 +496,28 @@ function Create() {
           <hr />
 
           {input.category &&
-            (input.category === "boots" || input.category === "pants")
+          (input.category === "boots" || input.category === "pants")
             ? sizes.map((num) => (
-              <div className="fato">
-                <div className="sizes">
-                  <label htmlFor="">Insert size {num} stock</label>
-                  <input
-                    type="number"
-                    min={0}
-                    placeholder="stock"
-                    name={num}
-                    value={input.stock}
-                    onBlur={(e) => handleNumberStock(e)}
-                  />
-                  <hr />
+                <div className="fato">
+                  <div className="sizes">
+                    <label htmlFor="">Insert size {num} stock</label>
+                    <input
+                      type="number"
+                      min={0}
+                      placeholder="stock"
+                      name={num}
+                      value={input.stock}
+                      onBlur={(e) => handleNumberStock(e)}
+                    />
+                    <hr />
+                  </div>
                 </div>
-              </div>
-            ))
+              ))
             : input.category &&
               (input.category === "accessories" ||
                 input.category === "t-shirts" ||
                 input.category === "jackets")
-              ? sizesLeter.map((leter) => (
+            ? sizesLeter.map((leter) => (
                 <div className="fato">
                   <div className="sizes">
                     <label htmlFor="">Insert size {leter} stock</label>
@@ -484,7 +533,7 @@ function Create() {
                   </div>
                 </div>
               ))
-              : sizesboard.map((leter) => (
+            : sizesboard.map((leter) => (
                 <div className="fato">
                   <div className="sizes">
                     <label htmlFor="">Insert stock for Boards</label>
@@ -526,12 +575,12 @@ function Create() {
             </Link>
 
             {!errors.model &&
-              !errors.name &&
-              !errors.price &&
-              !errors.description &&
-              !errors.material &&
-              !errors.activity &&
-              !errors.brand ? (
+            !errors.name &&
+            !errors.price &&
+            !errors.description &&
+            !errors.material &&
+            !errors.activity &&
+            !errors.brand ? (
               !input.name ? null : (
                 <button id="next" onClick={(e) => handleSubmit(e)}>
                   Upload
