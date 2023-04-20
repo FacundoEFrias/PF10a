@@ -147,7 +147,7 @@ cloudinary.config({
           address: address,
           
        })
-
+       await user.save()
        // configurar transporter para enviar correo electrónico
       /* let transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
