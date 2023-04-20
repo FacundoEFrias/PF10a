@@ -135,7 +135,8 @@ cloudinary.config({
        }
  
        // Actualizar la información del usuario y la URL de la imagen, si corresponde
-        user.update({
+       const updatedUser = await user.update(
+        {
           first_name: first_name,
           last_name: last_name,
           nationality: nationality,
@@ -143,9 +144,9 @@ cloudinary.config({
           address: address,
           mobile: mobile,
           image: imageUrl,
-          
-       },{ returning: true });
-
+        },
+        { returning: true } // Devolver el usuario actualizado
+      );
        // configurar transporter para enviar correo electrónico
       /* let transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
@@ -178,7 +179,7 @@ cloudinary.config({
 
  
        // Responder con el usuario actualizado
-       res.status(201).json(user);
+       res.status(201).json(updatedUser);
     } catch (err) {
        res.status(401).json({ message: err });
     };
