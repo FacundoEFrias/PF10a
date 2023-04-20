@@ -136,12 +136,12 @@ cloudinary.config({
  
        // Actualizar la información del usuario y la URL de la imagen, si corresponde
         user.update({
-          first_name: first_name,
-          last_name: last_name,
-          nationality: nationality,
-          date_birth: date_birth,
-          address: address,
-          mobile: mobile,
+          first_name,
+          last_name,
+          nationality,
+          date_birth,
+          address,
+          mobile,
           image: imageUrl,
           
        });
