@@ -147,7 +147,7 @@ cloudinary.config({
           address: address,
           
        })
-       const usuarioActualizado = await user.save()
+       
        // configurar transporter para enviar correo electrónico
       /* let transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
@@ -180,7 +180,7 @@ cloudinary.config({
 
  
        // Responder con el usuario actualizado
-       res.status(201).json(usuarioActualizado);
+       res.status(201).json(user);
     } catch (err) {
        res.status(401).json({ message: err });
     };
