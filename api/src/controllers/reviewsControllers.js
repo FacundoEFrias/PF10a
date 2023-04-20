@@ -1,4 +1,5 @@
 const { Reviews, Users, Bills, Products } = require("../db");
+const nodemailer = require("nodemailer");
 
 //! GET /ALL
 const getAllReviews = async (req, res) => {
@@ -53,6 +54,35 @@ const postReviews = async (req, res) => {
         productName: productName,
         userIdUser: idUser
       }
+         // configurar transporter para enviar correo electrónico
+      /* let transporter = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 465,
+        secure: true,
+        auth: {
+            user: "snowpandaco@gmail.com", //  correo electrónico
+            pass: "badticzdnopplwxx" //  contraseña se terceros
+        }
+    });
+
+    //modificar que quiero enviar
+    let mailOptions = {
+        from: "snowpandaco@gmail.com",
+        to: email,
+        subject: "Review created",
+        text:"Estimado/a " + firstName + "" + "\n\nLe informamos que su reseña ha sido creada con éxito en nuestra plataforma de SnowPanda. Queremos agradecerle por compartir su experiencia con otros usuarios y ayudarnos a mejorar nuestro servicio. Si tiene alguna duda o consulta, no dude en ponerse en contacto con nosotros. Nuestro equipo de soporte estará encantado de ayudarle en todo lo que necesite.\n\nGracias de nuevo por elegir SnowPanda.\n\nAtentamente,\nEquipo de SnowPanda"
+    };
+
+    // enviar correo electrónico
+    transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+            console.log(error);
+            res.status(500).json({ error: error });
+        } else {
+            console.log("Correo electrónico enviado: " + info.response);
+            res.status(201).send({ message: "User was update and email was sent" });
+        }
+    });*/
       // {
       //     include: [
       //       {
