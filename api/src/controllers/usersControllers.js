@@ -108,6 +108,7 @@ cloudinary.config({
        let { email } = req.params;
        console.log(email)
        let { first_name, last_name, nationality, date_birth, mobile, address} = req.body;
+       console.log(req.body)
        const user = await Users.findOne({
           where: {
              email: email
