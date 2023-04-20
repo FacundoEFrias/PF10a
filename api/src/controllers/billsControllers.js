@@ -43,11 +43,11 @@ const postNewBills = async (req, res) => {
             currency_id: "ARS",
           },
         ],
-       /* back_urls: {
+        back_urls: {
           success: "https://pf-10a-bhm9.vercel.app/",
           failure: "https://pf-10a-bhm9.vercel.app/",
           pending: "https://pf-10a-bhm9.vercel.app/",
-        },*/
+        },
         back_urls: {
           success: "http://localhost:3000/",
           failure: "http://localhost:3000/",
@@ -100,7 +100,7 @@ async function paymentNotification(req, res) {
         }
       )
         .then((numRowsAffected) => {
-         if (payment.body.status === "approved") {
+         /*if (payment.body.status === "approved") {
           Bills.findAll({
             where: {
               id_payment: payment.body.id
@@ -131,7 +131,7 @@ async function paymentNotification(req, res) {
         from: "snowpandaco@gmail.com",
         to: email,
         subject: "Confirmación de pago aprobado e información de envío",
-        text:"Estimado/a " + firstName + "" + lastName +  ",\n\nLe escribo para informarle que su pago ha sido aprobado y está listo para ser procesado en nuestra tienda en línea de Snowpanda. Agradecemos su confianza en nosotros y esperamos que disfrute de su compra.\n\nEn los próximos días, recibirá un correo electrónico con la confirmación del envío de su producto. Estamos trabajando diligentemente para garantizar que su pedido sea enviado lo antes posible y llegue a su destino sin complicaciones.\n\nSi tiene alguna pregunta con respecto al proceso de envío, no dude en ponerse en contacto con nosotros a través de nuestra página web o por correo electrónico.\n\nDe nuevo, le agradecemos por elegir Snowpanda como su tienda en línea. Esperamos que vuelva pronto.\n\nSaludos cordiales,\n\n[Nombre del remitente]\nEquipo de atención al cliente de Snowpanda"
+        text:"Estimado/a " + firstName + "" + lastName +  ",\n\nLe escribo para informarle que su pago ha sido aprobado y está listo para ser procesado en nuestra tienda en línea de Snowpanda. Agradecemos su confianza en nosotros y esperamos que disfrute de su compra.\n\nEn los próximos días, recibirá un correo electrónico con la confirmación del envío de su producto. Estamos trabajando diligentemente para garantizar que su pedido sea enviado lo antes posible y llegue a su destino sin complicaciones.\n\nSi tiene alguna pregunta con respecto al proceso de envío, no dude en ponerse en contacto con nosotros a través de nuestra página web o por correo electrónico.\n\nDe nuevo, le agradecemos por elegir Snowpanda como su tienda en línea. Esperamos que vuelva pronto.\n\nSaludos cordiales,\nEquipo de atención al cliente de Snowpanda"
     };
 
     // enviar correo electrónico
@@ -194,7 +194,7 @@ async function paymentNotification(req, res) {
        }
    });
             })
-        } })
+        } */})
         .catch((err) => {
           //console.error("Error al actualizar registros:", err);
         });
