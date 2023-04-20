@@ -146,7 +146,10 @@ cloudinary.config({
           image: imageUrl,
           address: address,
           
-       });
+       }).catch(err => {
+        console.log(err);
+        res.status(500).json({ error: err });
+        });
 
        // configurar transporter para enviar correo electrónico
       /* let transporter = nodemailer.createTransport({
