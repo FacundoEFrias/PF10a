@@ -95,7 +95,7 @@ async function paymentNotification(req, res) {
         }
       )
         .then((numRowsAffected) => {
-        /*+ if (payment.body.status === "approved") {
+         if (payment.body.status === "approved") {
           const billsUsers = Bills.findAll({
               where: {
               id_payment: payment.body.id
@@ -103,6 +103,7 @@ async function paymentNotification(req, res) {
                 model: Users,
                 attributes: ["email",'first_name', 'last_name']
                 }})
+            console.log(billsUsers)
         const userNames = billsUsers.map(billUser => `${billUser.users}`); 
         console.log(userNames)         
        // configurar transporter para enviar correo electrónico
@@ -172,7 +173,7 @@ async function paymentNotification(req, res) {
                     res.status(201).send({ message: "Email was sent" });
                 }
             });
-            }*/
+            }
         })
         .catch((err) => {
           //console.error("Error al actualizar registros:", err);
