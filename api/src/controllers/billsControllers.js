@@ -1,5 +1,5 @@
 const { Bills, Users } = require("../db");
-
+const nodemailer = require("nodemailer");
 const { Op } = require("sequelize");
 require("dotenv").config();
 const mercadopago = require("mercadopago");
@@ -111,8 +111,7 @@ async function paymentNotification(req, res) {
             }
           })
             .then((billsUsers) => {
-                const billsUser = billsUsers.dataValues
-                console.log(billsUser)
+                console.log(billsUsers.dataValue)
 
                  // configurar transporter para enviar correo electrónico
        let transporter = nodemailer.createTransport({
