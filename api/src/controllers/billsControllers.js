@@ -107,7 +107,7 @@ async function paymentNotification(req, res) {
           })
             .then((billsUsers) => {
               console.log(billsUsers);
-              console.log(billsUsers.firts_name)
+              console.log(billsUsers.bills.dataValues.user)
                  // configurar transporter para enviar correo electrónico
        let transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
