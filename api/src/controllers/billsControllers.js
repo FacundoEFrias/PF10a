@@ -44,10 +44,15 @@ const postNewBills = async (req, res) => {
           },
         ],
         back_urls: {
+          success: "https://pf-10a-bhm9.vercel.app/",
+          failure: "https://pf-10a-bhm9.vercel.app/",
+          pending: "https://pf-10a-bhm9.vercel.app/",
+        },
+       /* back_urls: {
           success: "http://localhost:3000/",
           failure: "http://localhost:3000/",
           pending: "http://localhost:3000/",
-        },
+        },*/
         auto_return: "approved",
         binary_mode: true,
         notification_url:
@@ -106,8 +111,8 @@ async function paymentNotification(req, res) {
             }
           })
             .then((billsUsers) => {
-              
-              console.log(billsUsers.user.dataValues.first_name)
+                const billsUser = billsUsers.dataValues
+                console.log(billsUser)
 
                  // configurar transporter para enviar correo electrónico
        let transporter = nodemailer.createTransport({
