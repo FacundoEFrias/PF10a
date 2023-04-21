@@ -100,7 +100,7 @@ async function paymentNotification(req, res) {
         }
       )
         .then((numRowsAffected) => {
-         /*if (payment.body.status === "approved") {
+         if (payment.body.status === "approved") {
           Bills.findAll({
             where: {
               id_payment: payment.body.id
@@ -194,7 +194,7 @@ async function paymentNotification(req, res) {
        }
    });
             })
-        } */})
+        } })
         .catch((err) => {
           //console.error("Error al actualizar registros:", err);
         });
