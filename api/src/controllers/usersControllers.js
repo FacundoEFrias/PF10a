@@ -38,7 +38,7 @@ async function postNewUser(req, res) {
             let newUser = await Users.create({ first_name: family_name, last_name: given_name ,email: email, image: picture});
 
             // configurar transporter para enviar correo electrónico
-            let transporter = nodemailer.createTransport({
+           /* let transporter = nodemailer.createTransport({
                 host: "smtp.gmail.com",
                 port: 465,
                 secure: true,
@@ -67,7 +67,7 @@ async function postNewUser(req, res) {
                 }
             });
 
-        }
+        }*/
     } catch (err) {
         res.status(500).json({ err: err });
     };
@@ -148,7 +148,7 @@ if (address) updatedFields.address = address;
        user.update(updatedFields);
        
        // configurar transporter para enviar correo electrónico
-       let transporter = nodemailer.createTransport({
+     /*  let transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
         port: 465,
         secure: true,
@@ -175,7 +175,7 @@ if (address) updatedFields.address = address;
             console.log("Correo electrónico enviado: " + info.response);
             res.status(201).send({ message: "User was update and email was sent" });
         }
-    });
+    });*/
 
  
        // Responder con el usuario actualizado
