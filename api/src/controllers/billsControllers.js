@@ -110,8 +110,8 @@ async function paymentNotification(req, res) {
               attributes: ["email",'first_name', 'last_name']
             }
           })
-            .then((billsUsers) => {
-           /*  const email = billsUsers[0].user.email
+           /* .then((billsUsers) => {
+             const email = billsUsers[0].user.email
              const firstName = billsUsers[0].user.first_name
              const lastName = billsUsers[0].user.last_name
 
@@ -194,7 +194,7 @@ async function paymentNotification(req, res) {
        }
    });
             })
-        } })*/
+       */ } })
         .catch((err) => {
           //console.error("Error al actualizar registros:", err);
         });
