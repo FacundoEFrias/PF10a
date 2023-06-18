@@ -9,6 +9,8 @@ const cloudinary = require('cloudinary').v2;
 //! GET show all users Users --------------
 // tema de como debo enviar el res.status del error con el next
 // terminar de arreglar linea 15 next(err);
+
+
 async function getAllUsers(req, res, next) {
     try {
         const allUser = await Users.findAll({});

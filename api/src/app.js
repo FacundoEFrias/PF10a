@@ -5,11 +5,33 @@ const morgan = require("morgan");
 const routes = require("./routes/index");
 const mercadopago = require("mercadopago");
 const { ACCESS_TOKEN } = process.env;
+const path = require("path");
+// swagger
+const swaggerUI = require("swagger-ui-express")
+const swaggerJsDoc = require("swagger-jsdoc");
+const swaggerSpec = {
+  definition:{
+    openapi: "3.0.0",
+    info: {
+      title: "SnowPanda API Reference",
+      version: "1.0.0",
+    },
+    server:[
+      {
+        url: "https://localhost:3000"
+      }
+    ]
+  },
+  apis:[`${path.join(__dirname,"./routes/*.js")}`]
+
+}
+//server.use("/api-doc", swaggerUI.serve, swaggerUI.setup(swaggerJsDoc(swaggerSpec)));
 
 require("./db.js");
 
 const server = express();
 
+server.use("/api-doc", swaggerUI.serve, swaggerUI.setup(swaggerJsDoc(swaggerSpec)));
 server.name = "API";
 
 server.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
@@ -66,5 +88,6 @@ server.use((err, req, res, next) => {
   console.error(err);
   res.status(status).send(message);
 });
+
 
 module.exports = server;
